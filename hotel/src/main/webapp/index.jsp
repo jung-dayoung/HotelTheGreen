@@ -17,6 +17,7 @@
 <body class="w3-light-grey">
 test1 -> test??
 헤미 수정
+코코코밋
 <!-- Navigation Bar -->
 <%@include file="include/navbar.jsp"%>
 <p/>
