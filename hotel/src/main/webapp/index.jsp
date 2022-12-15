@@ -17,7 +17,6 @@
 <body class="w3-light-grey">
 test1 -> test??
 
-<h1>asdasdasdasdasdassdasda ㅂㅈㄷㄳ</h1>
 <!-- Navigation Bar -->
 <%@include file="include/navbar.jsp"%>
 <p/>
