@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import = "java.util.*" %>
+<%@ page import = "reservation.reviewBean" %>
+<jsp:useBean id="roomFunction" class="reservation.room" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -79,7 +82,52 @@ h1, h2, h3, h4, h5, h6 {
 	<div style="margin-right:40px; margin-top:5px; margin-bottom:30px;">
 		<a class="gradient-btn" href="rooms_reservation1_date.jsp" style="margin-left: 1500px">객실 예약</a>
 	</div>
+	
+<!-- 리뷰 보기 -->
+	<h2  class="fs-1 justify-content-md-center" style="margin-left: 20%;">Deluxe Review</h2>
+<h3  class="fs-3 justify-content-md-center" style="margin-left: 20%;">평점 : <%=roomFunction.reviewAVG("노멀")%>점</h3>
+<div class="card text-start" style="max-width: 70%; margin: 5% 10%; border:0px;">
+  <table style="border: 0px;">
+    <%
+      Vector<reviewBean> reviewList = roomFunction.desplayReview("노멀");
 
+      for (int i = 0; i < reviewList.size(); i++) {
+
+      reviewBean rvBean = reviewList.get(i);
+    %>
+    <tr class="border-bottom">
+      <td style="width: 20%;">별점 :
+        <%
+          if (rvBean.getRV_SCORE() == 1) {
+        %>
+        <span style="color: transparent; text-shadow: 0 0 0 green;">⭐</span><span style="color: transparent; text-shadow: 0 0 0 #f0f0f0;">⭐⭐⭐⭐</span>
+        <%
+          } else if (rvBean.getRV_SCORE() == 2) {
+        %>
+        <span style="color: transparent; text-shadow: 0 0 0 green;">⭐⭐</span><span style="color: transparent; text-shadow: 0 0 0 #f0f0f0;">⭐⭐⭐</span>
+        <%
+          } else if (rvBean.getRV_SCORE() == 3) {
+        %>
+        <span style="color: transparent; text-shadow: 0 0 0 green;">⭐⭐⭐</span><span style="color: transparent; text-shadow: 0 0 0 #f0f0f0;">⭐⭐</span>
+        <%
+          } else if (rvBean.getRV_SCORE() == 4) {
+        %>
+        <span style="color: transparent; text-shadow: 0 0 0 green;">⭐⭐⭐⭐</span><span style="color: transparent; text-shadow: 0 0 0 #f0f0f0;">⭐</span>
+        <%
+          } else if (rvBean.getRV_SCORE() == 5) {
+        %>
+        <span style="color: transparent; text-shadow: 0 0 0 green;">⭐⭐⭐⭐⭐</span>
+        <%
+          }
+        %>
+      </td>
+      <td>내용 : <span><%=rvBean.getRV_CONTENTS()%></span></td>
+    </tr>
+    <%
+      }
+    %>
+  </table>
+</div>
 
 	<!-- Footer -->
 	<%@include file="../include/footer.jsp"%>

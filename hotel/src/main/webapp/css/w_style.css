@@ -98,6 +98,16 @@
 	border-radius: 5px;
 	margin-top:20px;
 }
+.w_input_choice_botton{
+	border:1px solid #F9B90F;
+	width:100px;
+	height:45px;
+	color:#FFFFFF;
+	background-color:#F9B90F;
+	border-radius: 5px;
+	margin-top:20px;
+	margin-left:450px;
+}
 .w_reservation_search_room_top{
 	border-top:1px solid #BDBDBD;
 	margin-top:50px;
@@ -147,12 +157,8 @@ h3{
 	color: #183c7d;
 	margin-top:0px;
 }
-.w_left_list_rooms_media{
-	
-}
 .w_left_list_rooms_details{
-    margin-left: 20px;
-    
+    margin-left: 20px; 
 }
 
 .w_left_list_button{
@@ -196,6 +202,20 @@ h3{
     padding:15px 20px 15px 20px;
     margin-top:10px;    
 }
+.w_reservation2_room_rm_cls{
+	border: none; background: transparent;
+}
+.w_reservation2_room_rm_cls:focus {
+	outline: none;
+}
+#input_room_name{
+	font-size:15px;
+	font-family:sans-serif;
+	color:#333333;
+}
+#input_room_cost{
+	list-style:none;
+}
 .w_right_list_cart_total{
     border: 1px solid #BDBDBD;
     border-radius: 5px;
@@ -204,7 +224,18 @@ h3{
     padding:13px 20px 13px 20px;
 }
 .w_right_list_cart_total_won{
-	padding-left:300px;
+	padding-left:50px;
+	font-size:20px;
+	color:#183C7D;
+}
+.w_reservation2_room_rm_cost{
+	font-size:15px;
+	color:#183C7D;
+	border: none; background: transparent;
+	text-align:right;
+}
+.w_reservation2_room_rm_cost:focus {
+	outline: none;
 }
 .w_right_list_next{
     border: 1px solid #F9B90F;
@@ -214,24 +245,32 @@ h3{
     padding:13px 20px 13px 20px;
     text-align: center;
     font-weight:bold;
+    width:428px;
+    color:white;
 }
 .w_right_list_next > a{
     color: white;
     text-decoration: none;
 }
 .w_right_list_check_detail_span1{
-	margin-left:270px;
-	color:#f9b90f;
+	margin-left:160px;
 }
 .w_right_list_check_detail_span2{
-	margin-left:257px;
-	color:#f9b90f;
+	margin-left:146px;
 }
 .w_cart_button{
 	margin-top:10px;
 	display:flex;
 	justify-content:space-between;
 	
+}
+.w_reservation2_room_check_in_out_text{
+	border: none; background: transparent;
+	text-align:right;
+	color:#f9b90f;
+}
+.w_reservation2_room_check_in_out_text:focus {
+	outline: none;
 }
 .w_cart_button_left{
     color: #666B7B;
