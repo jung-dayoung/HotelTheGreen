@@ -143,83 +143,130 @@ public class Mypage {
 
 	public Vector<roomReservationBean> show_room_list_nomember(String phone, String pwd, String use) {
 
-		Vector<roomReservationBean> vlist = new Vector<roomReservationBean>();
+	    PreparedStatement pstmtt = null;
+	    ResultSet rss = null;
 
-		try {
-			con = pool.getConnection();
-			String query = "select * from ROOM_RESERVATION as A " + "join ROOM as B on A.RM_KEY = B.RM_KEY "
-					+ "join ROOM_CLASS as C on B.RM_CLS_KEY = C.RM_CLS_KEY " + "where RM_RSV_PHONE = ? "
-					+ "and RM_RSV_PW = ? " + "and RM_RSV_USE = ?";
+	    Vector<roomReservationBean> vlist = new Vector<roomReservationBean>();
 
-			pstmt = con.prepareStatement(query);
+	    try {
+	      con = pool.getConnection();
 
-			pstmt.setString(1, phone);
-			pstmt.setString(2, pwd);
-			pstmt.setString(3, use);
+	      String query1 = "select RM_RSV_PRI as PRI from ROOM_RESERVATION " +
+	          "where RM_RSV_PHONE = ? and RM_RSV_PW = ? and RM_RSV_USE = ? " +
+	          "group by RM_RSV_PRI";
 
-			rs = pstmt.executeQuery();
+	      pstmtt = con.prepareStatement(query1);
+	      pstmtt.setString(1, phone);
+	      pstmtt.setString(2, pwd);
+	      pstmtt.setString(3, use);
 
-			while (rs.next()) {
-				roomReservationBean rsvBean = new roomReservationBean();
+	      rss = pstmtt.executeQuery();
 
-				rsvBean.setRM_RSV_KEY(rs.getInt("RM_RSV_KEY"));
-				rsvBean.setRM_RSV_CHK_IN(rs.getDate("RM_RSV_CHK_IN"));
-				rsvBean.setRM_RSV_CHK_OUT(rs.getDate("RM_RSV_CHK_OUT"));
-				rsvBean.setRM_RSV_USE(rs.getString("RM_RSV_USE"));
-				rsvBean.setRM_RSV_NUM(rs.getInt("RM_RSV_NUM"));
-				rsvBean.setRM_RSV_ADULT(rs.getInt("RM_RSV_ADULT"));
-				rsvBean.setRM_COST(rs.getInt("RM_COST"));
-				rsvBean.setRM_CLS(rs.getString("RM_CLS"));
-				vlist.addElement(rsvBean);
-			}
-		} catch (Exception ex) {
-			System.out.println("Exception" + ex);
-		} finally {
-			pool.freeConnection(con);
-		}
-		return vlist;
-	}
+	      while (rss.next()) {
 
-	public Vector<roomReservationBean> show_room_list_member(int key, String use) {
+	        String pri = rss.getString("PRI");
 
-		Vector<roomReservationBean> vlist = new Vector<roomReservationBean>();
+	        String query = "select * from ROOM_RESERVATION as A " +
+	            "join ROOM as B on A.RM_KEY = B.RM_KEY " +
+	            "join ROOM_CLASS as C on B.RM_CLS_KEY = C.RM_CLS_KEY " +
+	            "where RM_RSV_PHONE = ? and RM_RSV_PW = ? " +
+	            "and RM_RSV_USE = ? and RM_RSV_PRI = ? " +
+	            "limit 1";
 
-		try {
+	        pstmt = con.prepareStatement(query);
 
-			con = pool.getConnection();
+	        pstmt.setString(1, phone);
+	        pstmt.setString(2, pwd);
+	        pstmt.setString(3, use);
+	        pstmt.setString(4, pri);
 
-			String query = "select * from ROOM_RESERVATION as A " + "join ROOM as B on A.RM_KEY = B.RM_KEY  "
-					+ "join ROOM_CLASS as C on B.RM_CLS_KEY = C.RM_CLS_KEY " + "where MEM_KEY = ? and RM_RSV_USE = ?";
+	        rs = pstmt.executeQuery();
 
-			pstmt = con.prepareStatement(query);
+	        if (rs.next()) {
 
-			pstmt.setInt(1, key);
-			pstmt.setString(2, use);
+	          roomReservationBean rsvBean = new roomReservationBean();
 
-			rs = pstmt.executeQuery();
+	          rsvBean.setRM_RSV_KEY(rs.getInt("RM_RSV_KEY"));
+	          rsvBean.setRM_RSV_CHK_IN(rs.getDate("RM_RSV_CHK_IN"));
+	          rsvBean.setRM_RSV_CHK_OUT(rs.getDate("RM_RSV_CHK_OUT"));
+	          rsvBean.setRM_RSV_USE(rs.getString("RM_RSV_USE"));
+	          rsvBean.setRM_RSV_NUM(rs.getInt("RM_RSV_NUM"));
+	          rsvBean.setRM_RSV_ADULT(rs.getInt("RM_RSV_ADULT"));
+	          rsvBean.setRM_COST(rs.getInt("RM_COST"));
+	          rsvBean.setRM_CLS(rs.getString("RM_CLS"));
+	          vlist.addElement(rsvBean);
+	        }
+	      }
+	    } catch(Exception ex) {
+	      System.out.println("Exception" + ex);
+	    } finally{
+	      pool.freeConnection(con);
+	    }
+	    return vlist;
+	  }
 
-			while (rs.next()) {
+	  public Vector<roomReservationBean> show_room_list_member(int key, String use) {
 
-				roomReservationBean rsvBean = new roomReservationBean();
+	    PreparedStatement pstmtt = null;
+	    ResultSet rss = null;
 
-				rsvBean.setRM_RSV_KEY(rs.getInt("RM_RSV_KEY"));
-				rsvBean.setRM_RSV_CHK_IN(rs.getDate("RM_RSV_CHK_IN"));
-				rsvBean.setRM_RSV_CHK_OUT(rs.getDate("RM_RSV_CHK_OUT"));
-				rsvBean.setRM_RSV_NUM(rs.getInt("RM_RSV_NUM"));
-				rsvBean.setRM_RSV_ADULT(rs.getInt("RM_RSV_ADULT"));
-				rsvBean.setRM_RSV_USE(rs.getString("RM_RSV_USE"));
-				rsvBean.setMEM_key(rs.getInt("MEM_KEY"));
-				rsvBean.setRM_CLS(rs.getString("RM_CLS"));
-				rsvBean.setRM_COST(rs.getInt("RM_COST"));
-				vlist.addElement(rsvBean);
-			}
-		} catch (Exception ex) {
-			System.out.println("Exception" + ex);
-		} finally {
-			pool.freeConnection(con);
-		}
-		return vlist;
-	}
+	    Vector<roomReservationBean> vlist = new Vector<roomReservationBean>();
+
+	    try {
+
+	      con = pool.getConnection();
+
+	      String query1 = "select RM_RSV_PRI as PRI from ROOM_RESERVATION " +
+	          "where MEM_KEY = ? and RM_RSV_USE = ? " +
+	          "group by RM_RSV_PRI";
+
+	      pstmtt = con.prepareStatement(query1);
+	      pstmtt.setInt(1, key);
+	      pstmtt.setString(2, use);
+
+	      rss = pstmtt.executeQuery();
+
+	      while (rss.next()) {
+
+	        String pri = rss.getString("PRI");
+
+	        String query2 = "select * from ROOM_RESERVATION as A " +
+	            "join ROOM as B on A.RM_KEY = B.RM_KEY  " +
+	            "join ROOM_CLASS as C on B.RM_CLS_KEY = C.RM_CLS_KEY " +
+	            "where MEM_KEY = ? and RM_RSV_USE = ? and RM_RSV_PRI = ? " +
+	            "limit 1";
+
+	        pstmt = con.prepareStatement(query2);
+
+	        pstmt.setInt(1, key);
+	        pstmt.setString(2, use);
+	        pstmt.setString(3, pri);
+
+	        rs = pstmt.executeQuery();
+
+	        if (rs.next()) {
+
+	          roomReservationBean rsvBean = new roomReservationBean();
+
+	          rsvBean.setRM_RSV_KEY(rs.getInt("RM_RSV_KEY"));
+	          rsvBean.setRM_RSV_CHK_IN(rs.getDate("RM_RSV_CHK_IN"));
+	          rsvBean.setRM_RSV_CHK_OUT(rs.getDate("RM_RSV_CHK_OUT"));
+	          rsvBean.setRM_RSV_NUM(rs.getInt("RM_RSV_NUM"));
+	          rsvBean.setRM_RSV_ADULT(rs.getInt("RM_RSV_ADULT"));
+	          rsvBean.setRM_RSV_USE(rs.getString("RM_RSV_USE"));
+	          rsvBean.setMEM_key(rs.getInt("MEM_KEY"));
+	          rsvBean.setRM_CLS(rs.getString("RM_CLS"));
+	          rsvBean.setRM_COST(rs.getInt("RM_COST"));
+	          vlist.addElement(rsvBean);
+	        }
+	      }
+	    } catch(Exception ex) {
+	      System.out.println("Exception" + ex);
+	    } finally{
+	      pool.freeConnection(con);
+	    }
+	    return vlist;
+	  }
 
 	public int cost(Date out, Date in, int num, int rmCost) {
 		int cost = 0;
