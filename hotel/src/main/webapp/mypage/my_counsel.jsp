@@ -5,7 +5,7 @@
 <%@ page import="mypage.hamBeanCounsel"%>
 
 <jsp:useBean id="hamBeanIdCounsel"
-	class="mypage.myCounselMethod" scope="page" />
+	class="mypage.Mypage" scope="page" />
 
 <%
 	session.setAttribute("MEM_KEY", 7);

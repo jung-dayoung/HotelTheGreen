@@ -4,7 +4,7 @@
 <%@ page import="java.sql.*"%>
 <%@ page import="mypage.hamBeanInfo"%>
 
-<jsp:useBean id="hamBeanIdInfo" class="mypage.myinfoMethod" scope="page" />
+<jsp:useBean id="hamBeanIdInfo" class="mypage.Mypage" scope="page" />
 
 <%
 session.setAttribute("MEM_KEY", 4);

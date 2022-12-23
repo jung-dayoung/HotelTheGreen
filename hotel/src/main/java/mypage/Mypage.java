@@ -567,24 +567,24 @@ public class Mypage {
 	}
 
 	// 내 정보 메서드
-
-	public class myinfoMethod {
-
-		//private connectionPool pool = null;
-
-		public myinfoMethod() {
-
-			try {
-
-				//pool = connectionPool.getInstance();
-
-			}
-
-			catch (Exception e) {
-
-				System.out.println("Error : 커넥션 연결 실패");
-			}
-		}
+//
+//	public class myinfoMethod {
+//
+//		//private connectionPool pool = null;
+//
+//		public myinfoMethod() {
+//
+//			try {
+//
+//				//pool = connectionPool.getInstance();
+//
+//			}
+//
+//			catch (Exception e) {
+//
+//				System.out.println("Error : 커넥션 연결 실패");
+//			}
+//		}
 
 		public Vector<hamBeanInfo> myInfo(int hamkey) {
 
@@ -715,27 +715,27 @@ public class Mypage {
 				pool.freeConnection(conn);
 			}
 		}
-	}
+//	}
 
 	// 문의내역 메서드
 
-	public class myCounselMethod {
-
-		//private connectionPool pool = null;
-
-		public myCounselMethod() {
-
-			try {
-
-				//pool = connectionPool.getInstance();
-
-			}
-
-			catch (Exception e) {
-
-				System.out.println("Error : 커넥션 연결 실패");
-			}
-		}
+//	public class myCounselMethod {
+//
+//		//private connectionPool pool = null;
+//
+//		public myCounselMethod() {
+//
+//			try {
+//
+//				//pool = connectionPool.getInstance();
+//
+//			}
+//
+//			catch (Exception e) {
+//
+//				System.out.println("Error : 커넥션 연결 실패");
+//			}
+//		}
 
 		// member테이블에 있는 값이 담긴 메서드
 		public Vector<hamBeanCounsel> myCounselCustomer(int hamkey) {
@@ -785,4 +785,4 @@ public class Mypage {
 			return hamListCounsel;
 		}
 	}
-}
+//}

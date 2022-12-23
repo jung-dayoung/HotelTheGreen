@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<jsp:useBean id="hamBeanIdInfo" class="mypage.myinfoMethod" />
+<jsp:useBean id="hamBeanIdInfo" class="mypage.Mypage" />
 <%
 
 	session.setAttribute("MEM_KEY", 9);
