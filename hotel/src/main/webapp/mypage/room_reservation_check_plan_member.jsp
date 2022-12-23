@@ -1,6 +1,14 @@
+<%@ page import="mypage.roomReservationBean" %>
+<%@ page import="java.util.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+				 pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<jsp:useBean id="myFunction" class="mypage.Mypage"/>
+
+<%
+	session.setAttribute("MEM_KEY", 10);
+	int mem_key = (int) session.getAttribute("MEM_KEY");
+%>
 <html>
 <head>
 <title>회원 객실 예약 조회</title>
@@ -27,7 +35,7 @@
 	<div class="w-75" id="t_reservation_check_con_box">
 		<ul class="nav nav-pills nav-fill">
       <li class="nav-item">
-		    <h2 class="nav-link fs-1 text-dark fw-bolder" >user_id</h2>
+		    <h2 class="nav-link fs-1 text-dark fw-bolder" ><%=myFunction.userId(mem_key)%>님</h2>
 		  </li>
 		  <li class="nav-item">
         <a class="nav-link fs-5  text-dark" href="#">객실 예약 조회</a>
@@ -56,6 +64,16 @@
 	</div>
 <!-- nav 끝  -->
 
+<%
+	Vector<roomReservationBean> vlist = myFunction.show_room_list_member(mem_key, "이용 예정");
+
+	for(int i = 0; i < vlist.size(); i++) {
+
+		roomReservationBean rsvBean = vlist.get(i);
+
+		int cost = myFunction.cost(rsvBean.getRM_RSV_CHK_OUT(), rsvBean.getRM_RSV_CHK_IN(), rsvBean.getRM_RSV_NUM(), rsvBean.getRM_COST());
+
+%>
 
 <!-- 내역 카드 -->  
 	<div class="card mb-3" style="max-width: 40vmax;" id="t_reservation_info_card">
@@ -65,41 +83,25 @@
 	    </div>
 	    <div class="col-md-8">
 	      <div class="card-body">
-	        <h5 class="card-title fs-3">Hotel The Green / Normal</h5>
-          <p class="card-text fs-6"><small class="text-muted" >투숙 예정</small></p>
+	        <h5 class="card-title fs-3">Hotel The Green / <%=rsvBean.getRM_CLS()%></h5>
+          <p class="card-text fs-6"><small class="text-muted" >투숙 <%=rsvBean.getRM_RSV_USE()%></small></p>
           <p class="card-text fs-5" >
-            <span>2022-12-17 ~ 2022-12-18</span><br>
-            <span>객실 수 : 1개</span><br>
-            <span>인원 : 2명</span><br>
+            <span><%=rsvBean.getRM_RSV_CHK_IN()%> ~ <%=rsvBean.getRM_RSV_CHK_OUT()%></span><br>
+            <span>객실 수 : <%=rsvBean.getRM_RSV_NUM()%>개</span><br>
+            <span>인원 : <%=rsvBean.getRM_RSV_ADULT()%>명</span><br>
           </p>
-          <p class="card-text fs-6"><small class="text-muted" >120,000₩</small></p>
-          <button type="button" class="btn btn-success">예약 취소</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-	  <div class="card mb-3" style="max-width: 40vmax;" id="t_reservation_info_card">
-	  <div class="row g-0">
-	    <div class="col-md-4">
-	      <img src="../images/main2.jpg" class="img-fluid rounded-start h-75" alt="...">
-	    </div>
-	    <div class="col-md-8">
-	      <div class="card-body">
-        <h5 class="card-title fs-3">Hotel The Green / Normal</h5>
-          <p class="card-text fs-6"><small class="text-muted" >투숙 예정</small></p>
-          <p class="card-text fs-5" >
-            <span>2022-12-21 ~ 2022-12-23</span><br>
-            <span>객실 수 : 1개</span><br>
-            <span>인원 : 2명</span><br>
-          </p>
-          <p class="card-text fs-6"><small class="text-muted" >240,000₩</small></p>
-          <button type="button" class="btn btn-success">예약 취소</button>
+          <p class="card-text fs-6"><small class="text-muted" ><%=cost%>₩</small></p>
+					<form method="post" action="room_reservation_check_plan_to_cancel_proc.jsp">
+						<button type="submit" name="cancel" class="btn btn-success" value="<%=rsvBean.getRM_RSV_KEY()%>">예약취소</button>
+					</form>
         </div>
       </div>
     </div>
   </div>
   <!-- 카드 끝 -->
+<%
+	}
+%>
  
   <!-- 페이지네이션 -->
   <nav id="t_page_nav">

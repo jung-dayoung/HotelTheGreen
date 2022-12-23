@@ -1,6 +1,16 @@
+<%@ page import="java.util.*" %>
+<%@ page import="mypage.diningReservationBean" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+				 pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
+<jsp:useBean id="myFunction" class="mypage.Mypage"/>
+
+<%
+	session.setAttribute("MEM_KEY", 10);
+	int mem_key = (int) session.getAttribute("MEM_KEY");
+%>
+
 <html>
 <head>
 <title>회원 다이닝 예약 조회</title>
@@ -27,7 +37,7 @@
 	<div class="w-75" id="t_reservation_check_con_box">
 		<ul class="nav nav-pills nav-fill">
       <li class="nav-item">
-		    <h2 class="nav-link fs-1 text-dark fw-bolder" >user_id</h2>
+		    <h2 class="nav-link fs-1 text-dark fw-bolder" ><%=myFunction.userId(mem_key)%>님</h2>
 		  </li>
 		  <li class="nav-item">
         <a class="nav-link fs-5  text-dark" href="room_reservation_check_plan_member.jsp">객실 예약 조회</a>
@@ -56,29 +66,41 @@
 	</div>
 <!-- nav 끝  -->
 
+<%
+	Vector<diningReservationBean> vlist = myFunction.show_dining_list_member(mem_key, "이용 예정");
+
+	for(int i = 0; i < vlist.size(); i++) {
+
+		diningReservationBean rsvBean = vlist.get(i);
+%>
 
 <!-- 내역 카드 -->  
 	<div class="card mb-3" style="max-width: 40vmax;" id="t_reservation_info_card">
 	  <div class="row g-0">
 	    <div class="col-md-4">
-	      <img src="../images/chinese/chinese.jpeg" class="img-fluid rounded-start h-75" alt="...">
+	      <img src="../images/mypage_restaurant/<%=rsvBean.getRS_KEY()%>.jpeg" class="img-fluid rounded-start h-75" alt="...">
 	    </div>
 	    <div class="col-md-8">
 	      <div class="card-body">
 	        <h5 class="card-title fs-3">Hotel The Green / Dining</h5>
-          <p class="card-text fs-6"><small class="text-muted" >식사 예정</small></p>
+          <p class="card-text fs-6"><small class="text-muted" >식사 <%=rsvBean.getDN_RSV_USE()%></small></p>
           <p class="card-text fs-5" >
-            <span>2022-12-17</span><br>
-            <span>중식당 목란</span><br>
-            <span>인원 : 2명</span><br>
+            <span><%=rsvBean.getDN_RSV_DATE()%></span><br>
+            <span><%=rsvBean.getRS_NAME()%></span><br>
+            <span>인원 : <%=rsvBean.getDN_RSV_ADULT()%>명</span><br>
           </p>
-          <p class="card-text fs-6"><small class="text-muted" >석식</small></p>
-          <button type="button" class="btn btn-success">예약 취소</button>
-        </div>
+          <p class="card-text fs-6"><small class="text-muted" ><%=rsvBean.getML_TIME()%></small></p>
+					<form method="post" action="dining_reservation_check_plan_to_cancel_proc.jsp">
+						<button type="submit" name="cancel" class="btn btn-success" value="<%=rsvBean.getDN_RSV_KEY()%>">예약 취소</button>
+					</form>
+				</div>
       </div>
     </div>
   </div>
   <!-- 카드 끝 -->
+<%
+	}
+%>
  
   <!-- 페이지네이션 -->
   <nav id="t_page_nav">
@@ -97,11 +119,6 @@
 	  </ul>
 	</nav>
 	<!-- 페이지네이션 끝 -->
-	
-	
-
-
-	
 
 <!-- Footer -->
 <%@include file="../include/footer.jsp" %>

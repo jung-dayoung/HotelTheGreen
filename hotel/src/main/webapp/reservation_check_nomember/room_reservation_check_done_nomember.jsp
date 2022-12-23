@@ -1,6 +1,16 @@
+<%@ page import="mypage.roomReservationBean" %>
+<%@ page import="java.util.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
+<jsp:useBean id="myFunction" class="mypage.Mypage"/>
+
+<%
+  String phone = (String) session.getAttribute("phone");
+  String pwd = (String) session.getAttribute("pwd");
+%>
+
 <html>
 <head>
 <title>비회원 객실 예약 조회</title>
@@ -26,7 +36,7 @@
 	<div class="w-75" id="t_reservation_check_con_box">
 		<ul class="nav nav-pills nav-fill">
       <li class="nav-item">
-		    <h2 class="nav-link fs-1 text-dark fw-bolder" >user_name</h2>
+		    <h2 class="nav-link fs-1 text-dark fw-bolder" ><%=myFunction.userName(phone, pwd)%>님</h2>
 		  </li>
 		  <li class="nav-item">
         <a class="nav-link fs-5  text-dark" href="#">객실 예약 조회</a>
@@ -54,116 +64,88 @@
 	</div>
 <!-- nav 끝  -->
 
-<!-- 내역 카드 -->    
-	<div class="card mb-3" style="max-width: 40vmax;" id="t_reservation_info_card">
-	  <div class="row g-0">
-	    <div class="col-md-4">
-	      <img src="../images/main2.jpg" class="img-fluid rounded-start h-75" alt="...">
-	    </div>
-	    <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title fs-3">Hotel The Green / Normal</h5>
-          <p class="card-text fs-6"><small class="text-muted" >투숙 완료</small></p>
-          <p class="card-text fs-5" >
-            <span>2022-10-12 ~ 2022-10-13</span><br>
-            <span>객실 수 : 1개</span><br>
-            <span>인원 : 2명</span><br>
-          </p>
-          <p class="card-text fs-6"><small class="text-muted" >120,000₩</small></p>
-          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-					  리뷰 쓰기
-					</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- 리뷰 작성 모달 -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	  <div class="modal-dialog modal-dialog-centered">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <h1 class="modal-title fs-5" id="exampleModalLabel">리뷰 쓰기</h1>
-	      </div>
-	      <form name="myform" id="t_star_rating" method="post" action="./save">
-          <fieldset>
-            <input type="radio" name="rating" value="5" id="rate1"><label for="rate1">⭐</label>
-            <input type="radio" name="rating" value="4" id="rate2"><label for="rate2">⭐</label>
-            <input type="radio" name="rating" value="3" id="rate3"><label for="rate3">⭐</label>
-            <input type="radio" name="rating" value="2" id="rate4"><label for="rate4">⭐</label>
-            <input type="radio" name="rating" value="1" id="rate5"><label for="rate5">⭐</label>
-          </fieldset>
-        </form>
-	      <div class="modal-body">
-		      <div class="mb-3">
-					  <label for="exampleFormControlTextarea1" class="form-label">내용</label>
-					  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-					</div>
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-	        <button type="button" class="btn btn-success">완료</button>
-	      </div>
-	    </div>
-	  </div>
-	</div>
-	<!-- 리뷰 작성 모달 끝 -->
-	
-	 <div class="card mb-3" style="max-width: 40vmax;" id="t_reservation_info_card">
+<%
+  Vector<roomReservationBean> vlist = myFunction.show_room_list_nomember(phone, pwd, "이용 완료");
+
+  for(int i = 0; i < vlist.size(); i++) {
+
+    roomReservationBean rsvBean = vlist.get(i);
+
+    int cost = myFunction.cost(rsvBean.getRM_RSV_CHK_OUT(), rsvBean.getRM_RSV_CHK_IN(), rsvBean.getRM_RSV_NUM(), rsvBean.getRM_COST());
+
+%>
+
+  <!-- 내역 카드 -->
+  <div class="card mb-3" style="max-width: 40vmax;" id="t_reservation_info_card">
     <div class="row g-0">
       <div class="col-md-4">
         <img src="../images/main2.jpg" class="img-fluid rounded-start h-75" alt="...">
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title fs-3">Hotel The Green / Normal</h5>
-          <p class="card-text fs-6"><small class="text-muted" >투숙 완료</small></p>
+          <h5 class="card-title fs-3">Hotel The Green / <%=rsvBean.getRM_CLS()%></h5>
+          <p class="card-text fs-6"><small class="text-muted" >투숙 <%=rsvBean.getRM_RSV_USE()%></small></p>
           <p class="card-text fs-5" >
-            <span>2022-11-23 ~ 2022-11-24</span><br>
-            <span>객실 수 : 1개</span><br>
-            <span>인원 : 2명</span><br>
+            <span><%=rsvBean.getRM_RSV_CHK_IN()%> ~ <%=rsvBean.getRM_RSV_CHK_OUT()%></span><br>
+            <span>객실 수 : <%=rsvBean.getRM_RSV_NUM()%>개</span><br>
+            <span>인원 : <%=rsvBean.getRM_RSV_ADULT()%>명</span><br>
           </p>
-          <p class="card-text fs-6"><small class="text-muted" >120,000₩</small></p>
-          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <p class="card-text fs-6"><small class="text-muted" ><%=cost%>₩</small></p>
+          <%
+            boolean check = myFunction.reviewRoomCheck(rsvBean.getRM_RSV_KEY());
+            if(check) {
+          %>
+          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#review<%=i%>">
             리뷰 쓰기
           </button>
+          <%
+          } else {
+          %>
+          <button type="button" class="btn btn-dark">
+            리뷰 쓰기
+          </button>
+          <%
+            }
+          %>
         </div>
       </div>
     </div>
   </div>
-  
+
   <!-- 리뷰 작성 모달 -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="review<%=i%>" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">리뷰 쓰기</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel"><%=rsvBean.getRM_CLS()%>룸 리뷰 쓰기</h1>
         </div>
-        <form name="myform" id="t_star_rating" method="post" action="./save">
+        <form id="t_star_rating" method="post" action="room_review_proc.jsp">
           <fieldset>
-            <input type="radio" name="rating" value="5" id="rate1"><label for="rate1">⭐</label>
-            <input type="radio" name="rating" value="4" id="rate2"><label for="rate2">⭐</label>
-            <input type="radio" name="rating" value="3" id="rate3"><label for="rate3">⭐</label>
-            <input type="radio" name="rating" value="2" id="rate4"><label for="rate4">⭐</label>
-            <input type="radio" name="rating" value="1" id="rate5"><label for="rate5">⭐</label>
+            <input type="radio" name="score" value="5" id="rate1<%=i%>"><label for="rate1<%=i%>">⭐</label>
+            <input type="radio" name="score" value="4" id="rate2<%=i%>"><label for="rate2<%=i%>">⭐</label>
+            <input type="radio" name="score" value="3" id="rate3<%=i%>"><label for="rate3<%=i%>">⭐</label>
+            <input type="radio" name="score" value="2" id="rate4<%=i%>"><label for="rate4<%=i%>">⭐</label>
+            <input type="radio" name="score" value="1" id="rate5<%=i%>"><label for="rate5<%=i%>">⭐</label>
           </fieldset>
-        </form>
-        <div class="modal-body">
-          <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">내용</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="reviewContents<%=i%>" class="form-label">내용</label>
+              <textarea class="form-control" id="reviewContents<%=i%>" rows="3" name="reviewContents"></textarea>
+            </div>
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-          <button type="button" class="btn btn-success">완료</button>
-        </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+            <button name="rsv_key" type="submit" class="btn btn-success" value="<%=rsvBean.getRM_RSV_KEY()%>">완료</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
   <!-- 리뷰 작성 모달 끝 -->
-  
- <!-- 카드 끝 -->
+<!-- 카드 끝 -->
+<%
+  }
+%>
   
  <!-- 페이지네이션 -->
   <nav id="t_page_nav">

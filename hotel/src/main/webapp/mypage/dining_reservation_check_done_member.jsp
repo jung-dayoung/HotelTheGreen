@@ -1,6 +1,16 @@
+<%@ page import="java.util.*" %>
+<%@ page import="mypage.diningReservationBean" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+				 pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
+<jsp:useBean id="myFunction" class="mypage.Mypage"/>
+
+<%
+	session.setAttribute("MEM_KEY", 10);
+	int mem_key = (int) session.getAttribute("MEM_KEY");
+%>
+
 <html>
 <head>
 <title>회원 다이닝 예약 조회</title>
@@ -26,7 +36,7 @@
 	<div class="w-75" id="t_reservation_check_con_box">
 		<ul class="nav nav-pills nav-fill">
       <li class="nav-item">
-		    <h2 class="nav-link fs-1 text-dark fw-bolder" >user_id</h2>
+		    <h2 class="nav-link fs-1 text-dark fw-bolder" ><%=myFunction.userId(mem_key)%>님</h2>
 		  </li>
 		  <li class="nav-item">
         <a class="nav-link fs-5  text-dark" href="room_reservation_check_done_member.jsp">객실 예약 조회</a>
@@ -54,63 +64,87 @@
 	</div>
 <!-- nav 끝  -->
 
+<%
+	Vector<diningReservationBean> vlist = myFunction.show_dining_list_member(mem_key, "이용 완료");
+
+	for(int i = 0; i < vlist.size(); i++) {
+
+		diningReservationBean rsvBean = vlist.get(i);
+%>
+
 <!-- 내역 카드 -->    
 	<div class="card mb-3" style="max-width: 40vmax;" id="t_reservation_info_card">
 	  <div class="row g-0">
 	    <div class="col-md-4">
-	      <img src="../images/italian/italian.jpeg" class="img-fluid rounded-start h-75" alt="...">
+	      <img src="../images/mypage_restaurant/<%=rsvBean.getRS_KEY()%>.jpeg" class="img-fluid rounded-start h-75" alt="...">
 	    </div>
 	    <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title fs-3">Hotel The Green / Dining</h5>
-          <p class="card-text fs-6"><small class="text-muted" >식사 완료</small></p>
+          <p class="card-text fs-6"><small class="text-muted" >식사 <%=rsvBean.getDN_RSV_USE()%></small></p>
           <p class="card-text fs-5" >
-            <span>2022-10-12</span><br>
-            <span>이탈리안 빈센조</span><br>
-            <span>인원 : 2명</span><br>
+            <span><%=rsvBean.getDN_RSV_DATE()%></span><br>
+            <span><%=rsvBean.getRS_NAME()%></span><br>
+            <span>인원 : <%=rsvBean.getDN_RSV_ADULT()%>명</span><br>
           </p>
-          <p class="card-text fs-6"><small class="text-muted" >중식</small></p>
-          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-					  리뷰 쓰기
+          <p class="card-text fs-6"><small class="text-muted" ><%=rsvBean.getML_TIME()%></small></p>
+					<%
+						boolean check = myFunction.reviewDiningCheck(rsvBean.getDN_RSV_KEY());
+						if(check) {
+					%>
+					<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#reviewd<%=i%>">
+						리뷰 쓰기
 					</button>
+					<%
+					} else {
+					%>
+					<button type="button" class="btn btn-dark">
+						리뷰 쓰기
+					</button>
+					<%
+						}
+					%>
         </div>
       </div>
     </div>
   </div>
   
   <!-- 리뷰 작성 모달 -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="reviewd<%=i%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  <div class="modal-dialog modal-dialog-centered">
 	    <div class="modal-content">
 	      <div class="modal-header">
-	        <h1 class="modal-title fs-5" id="exampleModalLabel">리뷰 쓰기</h1>
+	        <h1 class="modal-title fs-5" id="exampleModalLabel"><%=rsvBean.getRS_NAME()%> 리뷰 쓰기</h1>
 	      </div>
-	      <form name="myform" id="t_star_rating" method="post" action="./save">
-          <fieldset>
-            <input type="radio" name="rating" value="5" id="rate1"><label for="rate1">⭐</label>
-            <input type="radio" name="rating" value="4" id="rate2"><label for="rate2">⭐</label>
-            <input type="radio" name="rating" value="3" id="rate3"><label for="rate3">⭐</label>
-            <input type="radio" name="rating" value="2" id="rate4"><label for="rate4">⭐</label>
-            <input type="radio" name="rating" value="1" id="rate5"><label for="rate5">⭐</label>
+				<form id="t_star_rating" method="post" action="dining_review_proc.jsp">
+				<fieldset>
+						<input type="radio" name="score" value="5" id="rate1<%=i%>"><label for="rate1<%=i%>">⭐</label>
+						<input type="radio" name="score" value="4" id="rate2<%=i%>"><label for="rate2<%=i%>">⭐</label>
+						<input type="radio" name="score" value="3" id="rate3<%=i%>"><label for="rate3<%=i%>">⭐</label>
+						<input type="radio" name="score" value="2" id="rate4<%=i%>"><label for="rate4<%=i%>">⭐</label>
+						<input type="radio" name="score" value="1" id="rate5<%=i%>"><label for="rate5<%=i%>">⭐</label>
           </fieldset>
-        </form>
-	      <div class="modal-body">
-		      <div class="mb-3">
-					  <label for="exampleFormControlTextarea1" class="form-label">내용</label>
-					  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+					<div class="modal-body">
+						<div class="mb-3">
+							<label for="reviewContents<%=i%>" class="form-label">내용</label>
+							<textarea class="form-control" id="reviewContents<%=i%>" rows="3" name="reviewContents"></textarea>
+						</div>
 					</div>
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-	        <button type="button" class="btn btn-success">완료</button>
-	      </div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+						<button name="rsv_key" type="submit" class="btn btn-success" value="<%=rsvBean.getDN_RSV_KEY()%>">완료</button>
+					</div>
+				</form>
 	    </div>
 	  </div>
 	</div>
 	<!-- 리뷰 작성 모달 끝 -->
  <!-- 카드 끝 -->
-  
- <!-- 페이지네이션 -->
+<%
+	}
+%>
+
+<!-- 페이지네이션 -->
   <nav id="t_page_nav">
 	  <ul class="pagination">
 	    <li class="page-item">

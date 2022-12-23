@@ -43,16 +43,18 @@
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">비회원 예약 조회</h1>
       </div>
-      <div class="modal-body">
-        <h2 class="modal-title fs-5">연락처</h2>
-        <input class="form-control" type="text">
-        <h2 class="modal-title fs-5">비밀번호</h2>
-        <input type="password" class="form-control" id="inputPassword">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-        <form method="post" action=""><button type="button" class="btn btn-success">조회</button></form>
-      </div>
+      <form method="post" action="../reservation_check_nomember/noemember_rsv_check.jsp">
+        <div class="modal-body">
+          <h2 class="modal-title fs-5">연락처</h2>
+          <input name="phone" class="form-control" type="text" placeholder="010-xxxx-xxxx">
+          <h2 class="modal-title fs-5">비밀번호</h2>
+          <input name="pwd" type="password" class="form-control" id="inputPassword" placeholder="****">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+          <button type="submit" class="btn btn-success">조회</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
