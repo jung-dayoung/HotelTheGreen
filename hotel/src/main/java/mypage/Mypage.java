@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.util.Vector;
 
 public class Mypage {
-	private static connectionPool pool;
+	private static DBConnectionMgr pool;
 
 	Connection con = null;
 	PreparedStatement pstmt = null;
@@ -15,7 +15,7 @@ public class Mypage {
 
 	public Mypage() {
 		try {
-			pool = connectionPool.getInstance(); // DBConnectionMgr 클래스의 pool을 사용해서 드리이버 로딩
+			pool = DBConnectionMgr.getInstance(); // DBConnectionMgr 클래스의 pool을 사용해서 드리이버 로딩
 		} catch (Exception e) {
 			System.out.println("Error : 커넥션 연결 실페");
 		}
@@ -570,13 +570,13 @@ public class Mypage {
 
 	public class myinfoMethod {
 
-		private connectionPool pool = null;
+		//private connectionPool pool = null;
 
 		public myinfoMethod() {
 
 			try {
 
-				pool = connectionPool.getInstance();
+				//pool = connectionPool.getInstance();
 
 			}
 
@@ -721,13 +721,13 @@ public class Mypage {
 
 	public class myCounselMethod {
 
-		private connectionPool pool = null;
+		//private connectionPool pool = null;
 
 		public myCounselMethod() {
 
 			try {
 
-				pool = connectionPool.getInstance();
+				//pool = connectionPool.getInstance();
 
 			}
 
