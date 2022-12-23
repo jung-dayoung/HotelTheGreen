@@ -1,0 +1,68 @@
+@charset "EUC-KR";
+
+
+
+.indexcolor1 {
+	background-color: #98ba6e;	
+
+}
+.indexcolor2 {
+	background-color: #DDECCA;	
+
+}
+
+.indexcolor3 {
+	background-color: #50781e;	
+
+}
+
+
+
+a {
+	text-decoration-line: none;
+}
+
+#index_find{
+	width : 20%;
+	min-width : 350px;
+	margin-right : 20%;
+}
+
+
+#index_find table {
+	margin: auto;
+}
+
+.index_title{
+	font-family:'Do Hyeon', sans-serif;
+    margin: auto;
+	
+}
+
+.indexroom {
+	margin-top: 10px;
+}
+
+.w3-white h3 {
+	margin-top: 10px;
+}
+
+.w3-green .index_title{
+	font-size: 25px;	
+}
+
+.intro{
+	font-size: 45px;
+	color: #568A35;	
+}
+
+#indexButton {
+	float : right;
+	margin-top : 10px;
+}
+
+*{
+font-family: 'Do Hyeon', sans-serif;
+font-family: 'Raleway', sans-serif;
+}
+

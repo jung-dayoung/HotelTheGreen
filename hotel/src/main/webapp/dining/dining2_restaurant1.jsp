@@ -27,14 +27,13 @@ body, h1, h2, h3, h4, h5, h6 {
 }
 </style>
 </head>
-<body class="w3-white">
+<body class="w3-white diningcenter">
 
 	<!-- Navigation Bar -->
 	<%@include file="../include/navbar.jsp"%><p />
 
 	<!-- 레스토랑 설명 -->
-	<div class="container text-center">
-		<h4>다이닝</h4>
+		<h4 class="dining_title">다이닝</h4>
 		<h1>
 			<b>중화요리 목란,</b>
 		</h1>
@@ -43,16 +42,15 @@ body, h1, h2, h3, h4, h5, h6 {
 		<!-- 레스토랑 슬라이드 이미지 -->
 
 		<div class="slider">
-			<input type="radio" name="slide" id="slide1" checked> <input
-				type="radio" name="slide" id="slide2"> <input type="radio"
-				name="slide" id="slide3"> <input type="radio" name="slide"
-				id="slide4">
+			<input type="radio" name="slide" id="slide1" checked>
+			<input type="radio" name="slide" id="slide2">
+			<input type="radio" name="slide" id="slide3">
+			<input type="radio" name="slide" id="slide4">
 			<ul class="imgs">
-				<li><img class="j-dining-img" src="../images/dining2_1.jpg" /></li>
-				<li><img class="j-dining-img" src="../images/dining2_2.jpg" /></li>
-				<li><img class="j-dining-img" src="../images/dining2_3.jpg" /></li>
-				<li><img class="j-dining-img" src="../images/dining2_4.jpg" /></li>
-				<li><img class="j-dining-img" src="../images/dining2_5.jpg" /></li>
+				<li><img class="j-dining-img" src="../images/dining_chinese_slide1.jpg" /></li>
+				<li><img class="j-dining-img" src="../images/dining_chinese_slide2.jpg" /></li>
+				<li><img class="j-dining-img" src="../images/dining_chinese_slide3.jpg" /></li>
+				<li><img class="j-dining-img" src="../images/dining_chinese_slide4.jpg" /></li>
 			</ul>
 			<div class="bullets">
 				<label for="slide1">&nbsp;</label> <label for="slide2">&nbsp;</label>
@@ -60,21 +58,14 @@ body, h1, h2, h3, h4, h5, h6 {
 			</div>
 		</div>
 
-		<div class="row" id="row_dining_info">
-			<div class="col">
-				<h3>상세정보</h3>
-			</div>
-			<div class="col-auto">
-
-				<a href="dining3_reservation.jsp"><button type="button"
-						class="btn btn-primary" id="j_button" value="목란">예약하기</button></a>
-			</div>
-
-
-		</div>
-		<div class="row" id="row_dining_info">
-			<div class="col" id="col_dining_info1">
-				<br> <br>
+		<table class="dininginfo_table">
+			<tr>
+			<td colspan="3" width="75%"><h3 class="dining_title">상세정보</h3></td>
+			<td colspan="1" width="25%"><button type="button" class="btn btn-success" id="j_button" onclick="location.href='dining3_reservation.jsp?id=1'">예약하기</button></td>
+			</tr>
+			
+			<tr>
+			<td colspan="2" width="65%">		
 				<p>한국 최초로 파라다이스시티에서만 맛 볼 수 있는 정통 고급 광동식 중국요리의 대명사</p>
 				<p>미슐랭스타를 획득한 광동식 중국요리 파인 다이닝 레스토랑 임페리얼 트레져는 싱가폴, 홍콩, 광저우, 런던,
 					파리 등 각지에 진출해 있으며, 정통 중국 요리에 임페리얼 트레져만의 깊이를 더해 프리미엄급 중식 요리를 완성하였습니다.
@@ -83,12 +74,11 @@ body, h1, h2, h3, h4, h5, h6 {
 				<p>대표적인 메뉴 구운 북경오리는 오리의 껍질은 바삭하게, 속은 촉촉한 육즙을 최대화하여 요리합니다. 광택이 도는
 					껍질을 설탕에 찍어 풍부한 식감과 오리 본연의 풍미를 고스란히 느낄 수 있어 호불호 없이 즐길 수 있습니다. 미슐랭
 					2스타를 받은 임페리얼 트레져에서 풍미 가득한 정통 광동식 중국요리를 경험해보세요.</p>
-			</div>
-
-			<div class="col" id="col_dining_info2">
-				<div>
+			</td>
+			
+			<td colspan="2">		
 					<dl>
-						<dt>
+						<dt class="dining_title">
 							<br>운영시간
 						</dt>
 						<dd>
@@ -101,29 +91,30 @@ body, h1, h2, h3, h4, h5, h6 {
 						</dd>
 					</dl>
 					<dl>
-						<dt>좌석수</dt>
+						<dt class="dining_title">좌석수</dt>
 						<dd>130석 (프라이빗 룸 5실 / 83석)</dd>
 					</dl>
 					<dl>
-						<dt>위치</dt>
+						<dt class="dining_title">위치</dt>
 						<dd>
 							HOTEL PARADISE 1층<br />
 						</dd>
 					</dl>
 					<dl>
-						<dt>연락처</dt>
+						<dt class="dining_title">연락처</dt>
 						<dd>032-729-2227</dd>
-					</dl>
-				</div>
-			</div>
-
-		</div>
-
-		<br> <span style="color: #e66045;">* 사회적 거리두기 단계 격상 시 아래와
+						</dl>
+						</td>
+						</tr>
+						
+						
+			<tr>
+			<td colspan="4">
+		 <span style="color: #e66045;">* 사회적 거리두기 단계 격상 시 아래와
 			같이 운영됩니다.</span><br> <span style="padding-left: 10px; color: #e66045;">-
-			운영시간: Lunch 12:00 ~ 15:00 / Dinner 17:30 ~ 21:00</span><br>
-
-	</div>
+			운영시간: Lunch 12:00 ~ 15:00 / Dinner 17:30 ~ 21:00</span><br></td>
+			</tr>
+	</table>
 
 	<%@include file="../include/footer.jsp"%>
 	<script
