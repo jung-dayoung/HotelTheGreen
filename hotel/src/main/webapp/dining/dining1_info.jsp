@@ -20,11 +20,10 @@
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="../css/dining_style.css">
 
-<% 
+<%-- <% 
   	session.setAttribute("MEM_KEY", 10);
 	session.setMaxInactiveInterval(60*5); 
-/*  	session.invalidate();
- */%>
+%> --%>
 	
 
 <style>
