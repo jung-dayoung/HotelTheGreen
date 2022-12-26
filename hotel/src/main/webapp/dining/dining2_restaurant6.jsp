@@ -1,3 +1,6 @@
+<%@page import="java.util.Vector"%>
+<%@page import="dining.diningBean"%>
+<%@page import="dining.diningDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -115,6 +118,58 @@ body, h1, h2, h3, h4, h5, h6 {
 			운영시간: Lunch 12:00 ~ 15:00 / Dinner 17:30 ~ 21:00</span><br></td>
 			</tr>
 	</table>
+<%
+	diningDAO ddao = new diningDAO();
+	String name = "6";
+%>
+	
+	<h3 class="dining_title dining_maintitle diningcenter">Review</h3>
+	<h3  class="fs-3 justify-content-md-center" style="margin-left: 20%;">평점 : <%=ddao.reviewAVG(name)%>점</h3>
+	<div class="card text-start" style="max-width: 70%; margin: 5% 10%; border:0px;">
+  		<table style="border: 0px;">
+
+<%
+		    
+			Vector<diningBean> reviewList = ddao.displayReview(name);
+	
+		    for (int i = 0; i < reviewList.size(); i++) {
+		
+		    	diningBean rvBean = reviewList.get(i);
+		    	
+%>
+		    <tr class="border-bottom">
+		      <td style="width: 20%;">별점 :
+		        <%
+		        	if (rvBean.getRV_SCORE() == 1) {
+		    	        %>
+				        <span style="color: transparent; text-shadow: 0 0 0 green;">⭐</span><span style="color: transparent; text-shadow: 0 0 0 #f0f0f0;">⭐⭐⭐⭐</span>
+				        <%
+				          } else if (rvBean.getRV_SCORE() == 2) {
+				        %>
+				        <span style="color: transparent; text-shadow: 0 0 0 green;">⭐⭐</span><span style="color: transparent; text-shadow: 0 0 0 #f0f0f0;">⭐⭐⭐</span>
+				        <%
+				          } else if (rvBean.getRV_SCORE() == 3) {
+				        %>
+				        <span style="color: transparent; text-shadow: 0 0 0 green;">⭐⭐⭐</span><span style="color: transparent; text-shadow: 0 0 0 #f0f0f0;">⭐⭐</span>
+				        <%
+				          } else if (rvBean.getRV_SCORE() == 4) {
+				        %>
+				        <span style="color: transparent; text-shadow: 0 0 0 green;">⭐⭐⭐⭐</span><span style="color: transparent; text-shadow: 0 0 0 #f0f0f0;">⭐</span>
+				        <%
+				          } else if (rvBean.getRV_SCORE() == 5) {
+				        %>
+				        <span style="color: transparent; text-shadow: 0 0 0 green;">⭐⭐⭐⭐⭐</span>
+				        <%
+				          }
+				        %>
+				      </td>
+		      <td>내용 : <span><%=rvBean.getRV_CONTENTS()%></span></td>		      
+		    </tr>
+		    <%
+		      }
+		    %>
+		</table>
+	</div>
 
 	<%@include file="../include/footer.jsp"%>
 	<script

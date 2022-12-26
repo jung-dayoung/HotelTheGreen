@@ -20,6 +20,12 @@
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="../css/dining_style.css">
 
+<% 
+  	session.setAttribute("MEM_KEY", 10);
+	session.setMaxInactiveInterval(60*5); 
+/*  	session.invalidate();
+ */%>
+	
 
 <style>
 body, h1, h2, h3, h4, h5, h6 {
@@ -32,6 +38,8 @@ body, h1, h2, h3, h4, h5, h6 {
 
 	<!-- Navigation Bar -->
 	<%@include file="../include/navbar.jsp"%><p />
+	
+	
 
 
 	<div class="container text-center dining_font">

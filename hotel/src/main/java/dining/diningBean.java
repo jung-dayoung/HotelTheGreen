@@ -1,7 +1,8 @@
 package dining;
 
 public class diningBean {
-
+		
+	/* 다이닝 예약 변수 */
 	private String DN_RSV_DATE;
 	private int DN_RSV_ADULT;
 	private String DN_RSV_NAME;
@@ -12,8 +13,79 @@ public class diningBean {
 	private String restaurantTime;
 	private String RS_KEY;
 	private String ML_KEY;
-	private int MEM_KEY;
 	
+	/* 회원 정보 변수 */
+	private int MEM_KEY;
+	private String MEM_ID;
+	private String MEM_PHONE;
+	private String MEM_NAME;
+	
+	/* 리뷰 변수 */
+
+	private String RV_KEY;	
+	private String DN_RSV_KEY;
+	private int RV_SC_KEY;
+	private String RV_CONTENTS;
+	private int RV_SCORE;
+	private int RV_AVG;
+	
+	public int getRV_AVG() {
+		return RV_AVG;
+	}
+	public void setRV_AVG(int RV_AVG) {
+		this.RV_AVG = RV_AVG;
+	}
+	public int getRV_SCORE() {
+		return RV_SCORE;
+	}
+	public void setRV_SCORE(int RV_SCORE) {
+		this.RV_SCORE = RV_SCORE;
+	}
+	
+	public String getRV_KEY() {
+		return RV_KEY;
+	}
+
+	public void setRV_KEY(String RV_KEY) {
+		this.RV_KEY = RV_KEY;
+	}
+
+	public String getDN_RSV_KEY() {
+		return DN_RSV_KEY;
+	}
+	public void setDN_RSV_KEY(String DN_RSV_KEY) {
+		this.DN_RSV_KEY = DN_RSV_KEY;
+	}
+	public int getRV_SC_KEY() {
+		return RV_SC_KEY;
+	}
+	public void setRV_SC_KEY(int RV_SC_KEY) {
+		this.RV_SC_KEY = RV_SC_KEY;
+	}
+	public String getRV_CONTENTS() {
+		return RV_CONTENTS;
+	}
+	public void setRV_CONTENTS(String rV_CONTENTS) {
+		RV_CONTENTS = rV_CONTENTS;
+	}
+	public String getMEM_ID() {
+		return MEM_ID;
+	}
+	public void setMEM_ID(String MEM_ID) {
+		this.MEM_ID = MEM_ID;
+	}
+	public String getMEM_PHONE() {
+		return MEM_PHONE;
+	}
+	public void setMEM_PHONE(String MEM_PHONE) {
+		this.MEM_PHONE = MEM_PHONE;
+	}
+	public String getMEM_NAME() {
+		return MEM_NAME;
+	}
+	public void setMEM_NAME(String MEM_PHONE) {
+		this.MEM_NAME = MEM_PHONE;
+	}
 	public String getRestaurantName() {
 		return restaurantName;
 	}

@@ -32,16 +32,31 @@ body, h1, h2, h3, h4, h5, h6 {
 
 <script language="JavaScript" src="diningReservationCheck.js"></script>
 
+<%
+	int mem_key = 0;
+	int ad_uc_key = 2;
+	
+	if (session.getAttribute("MEM_KEY") != null) {
+	mem_key = (int) session.getAttribute("MEM_KEY");
+	ad_uc_key = 1;
+	
+	}
+	
+%>	
+
+
 <% 
 
 		int id = Integer.parseInt(request.getParameter("id")); 
 		diningDAO ddao = new diningDAO();
 		diningBean dbean = ddao.oneSelectRestaurant(id);
+		diningBean meminfo = ddao.oneSelectMember(mem_key);
 		
 %>
 
 </head>
 <body class="w3-white dining_font">
+
 
 	<!-- Navigation Bar -->
 <%@include file="../include/navbar.jsp"%><p />
@@ -57,7 +72,7 @@ body, h1, h2, h3, h4, h5, h6 {
 				<tr>
 				<td rowspan="2">희망식당<br><input class="diningcenter" type="text" name="restaurantName" value="<%=dbean.getRestaurantName()%>" disabled>
 								<input type="hidden" name="RS_KEY" value="<%=id%>"></td>
-				<td>예약자명<input type="text" class="form-control" name="DN_RSV_NAME" placeholder="예약자명"></td>
+				<td>예약자명<input type="text" class="form-control" name="DN_RSV_NAME" placeholder="예약자명" value="<% if(mem_key==0){} else { %><%=meminfo.getMEM_NAME()%> <%}; %>"></td>
 				</tr>
 				
 				<tr>
@@ -66,10 +81,9 @@ body, h1, h2, h3, h4, h5, h6 {
 				</tr>
 				
 				<tr>
-				<td>희망 날짜<br> <input type="date" name="DN_RSV_DATE"></td>
-				
-					<td>휴대폰번호
-						<input type="text" class="form-control" name="DN_RSV_PHONE" placeholder="휴대폰번호">
+				<td>희망 날짜<br> <input type="date" name="DN_RSV_DATE" id="Date"></td>
+				<td>휴대폰번호
+						<input type="text" class="form-control" name="DN_RSV_PHONE" placeholder="휴대폰번호" value="<% if(mem_key==0){} else { %><%=meminfo.getMEM_PHONE()%><%}; %>">
 					</td>
 					</tr>
 					
@@ -82,18 +96,28 @@ body, h1, h2, h3, h4, h5, h6 {
 						<input class="form-check-input" type="radio" name="ML_KEY" value="3">
 						<label class="form-check-label" for="inlineRadio3">석 식(17:00 ~	20:00)</label>
 					</td>
+					<% if(mem_key!=0){} else{%>
+					
 					<td>예약조회 비밀번호
 					<input type="password" class="form-control" name="DN_RSV_PW" placeholder="비밀번호"> &nbsp;
 					<input type="password" class="form-control" name="DN_RSV_PW2" placeholder="비밀번호 확인">
-					
+					<% }; %>
 					</td>
 					</tr>
 					<tr>
 					<td></td>
-					<td class="diningcenter"><input type="button" class="btn btn-success" onclick="inputCheck()" value="예약하기"></td>
+					<td class="diningcenter"><input type="button" class="btn btn-success btnmargin" onclick="inputCheck()" value="예약하기"></td>
 					</table>
 					</form>
 
+					<script>
+					
+					var now_utc = Date.now()
+					var timeOff = new Date().getTimezoneOffset() * 60000;
+					var today = new Date(now_utc - timeOff).toISOString().split("T")[0];
+					document.getElementById("Date").setAttribute("min", today);
+					
+					</script>
 
 
 

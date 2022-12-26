@@ -38,12 +38,13 @@ body, h1, h2, h3, h4, h5, h6 {
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
 		crossorigin="anonymous">
-
-	alert("예약 완료 되었습니다.");
-	location.herf="../index.jsp"
 	</script>
 
 <body class="w3-white dining_font">
+
+<script type="text/javascript">
+alert("예약 완료 되었습니다.");
+location.href="../index.jsp"</script>
 
 	<!-- Navigation Bar -->
 <%@include file="../include/navbar.jsp"%><p />

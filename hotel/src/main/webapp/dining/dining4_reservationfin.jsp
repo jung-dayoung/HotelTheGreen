@@ -110,8 +110,8 @@ body, h1, h2, h3, h4, h5, h6 {
           
           <tr> 
             <td colspan="2" class="diningcenter"> 
-             <input type="submit" value="확인완료" class="btn btn-success"> &nbsp; 
-			 <input type="button" value="돌아가기" class="btn btn-success" onClick="history.back()"> 
+             <input type="submit" value="확인완료" class="btn btn-success btnmargin"> &nbsp; 
+			 <input type="button" value="돌아가기" class="btn btn-success btnmargin" onClick="history.back()"> 
 			 <!-- 다시쓰기 를 클릭하면 자바스크립트 내 메서드인 history.back()을 실행해서 뒤로 가기 합니다. -->
 			</td>
 		</tr>

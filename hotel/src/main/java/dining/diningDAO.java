@@ -3,6 +3,7 @@ package dining;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Vector;
 
 
 public class diningDAO {
@@ -111,4 +112,119 @@ public class diningDAO {
 			   	}	
 			return dbean;	
 		}
+		
+		public diningBean oneSelectMember(int id){
+			//한사람에 대한 정보만 리턴하기에 빈클래스 객체 생성
+			diningBean bean = new diningBean();
+			//무조건 데이터 베이스는 예외 처리를 반드시 해야 합니다.
+			 try{
+				 //커넥션 연결 
+				 getcon();
+				 
+				 //쿼리 준비 
+				 String SQL = "SELECT MEM_ID, MEM_PHONE, MEM_NAME FROM MEMBER WHERE mem_key= ?";
+				 //쿼리를 실행 시켜주는 객체 선언 
+				 stmt = conn.prepareStatement(SQL);		 
+				 //?의 값을 맵핑 
+				 stmt.setInt(1,id);
+				 //쿼리 실행 
+				 rs = stmt.executeQuery();
+				 if(rs.next()){//레코드가 있다면 
+					 bean.setMEM_ID(rs.getString(1));
+					 bean.setMEM_PHONE(rs.getString(2));
+					 bean.setMEM_NAME(rs.getString(3));	 
+				 }
+				 
+				 //자원 반납
+				 conn.close();
+				 
+			    }catch(Exception e){
+			    	e.printStackTrace();
+			   	}	
+			 //리턴 
+			return bean;	
+		}
+		
+		
+		public Vector<diningBean> displayReview(String name) {
+
+		    Vector<diningBean> reviewList = new Vector<diningBean>();
+		    try {
+
+		    	 getcon();
+
+		      String query = "select * from REVIEW as A join DINING_RESERVATION as B on A.DN_RSV_KEY = B.DN_RSV_KEY "
+		      		+ "join RESTAURANT as C on B.RS_KEY = C.RS_KEY WHERE C.RS_KEY = ?";
+		      
+
+		      stmt = conn.prepareStatement(query);
+
+		      stmt.setString(1, name);
+
+		      rs = stmt.executeQuery();
+		      
+		      
+				
+			    	  diningBean rv = new diningBean();
+
+				 
+		      while(rs.next()) {
+		    	  
+
+		    	  rv.setRV_SCORE(rs.getInt("RV_SC_KEY"));
+		    	  rv.setRV_CONTENTS(rs.getString("RV_CONTENTS"));
+		    	  reviewList.addElement(rv);
+
+		      }
+		      
+	
+		    }catch(Exception ex) {
+		      System.out.println("Exception" + ex);
+		    }finally{
+		      pool.freeConnection(conn);
+		    }
+		    return reviewList;
+
+		  }
+
+		  
+		  //리뷰평점
+		  public int reviewAVG(String name) {
+			  
+			  int count = 0;
+		      int avg = 0;
+		   
+		    try {
+
+		    	 getcon();
+
+		      String query = "select * from REVIEW as A " +
+			          "join DINING_RESERVATION as B " +
+			          "on A.DN_RSV_KEY = B.DN_RSV_KEY " +
+			          "join RESTAURANT as C " +
+			          "on B.RS_KEY = C.RS_KEY " +
+			          "WHERE C.RS_KEY = ?";
+			      
+		      stmt = conn.prepareStatement(query);
+
+		      stmt.setString(1, name);
+
+		      rs = stmt.executeQuery();
+
+		      
+		      while (rs.next()) {
+		        avg += rs.getInt("RV_SC_KEY");
+		        count++;
+		      }
+		      
+
+		      avg = avg / count;
+
+		    } catch (Exception ex) {
+		      System.out.println("Exception" + ex);
+		    } finally {
+		      pool.freeConnection(conn);
+		    }
+		    return avg;
+		  }
 }
