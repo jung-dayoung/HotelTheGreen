@@ -32,11 +32,12 @@ body, h1, h2, h3, h4, h5, h6 {
 				" WELCOME TO HOTEL THE GREEN "</h2>
 		</div>
 		<div>
-			<form action="login.jsp" style="margin-bottom: 20%; margin-left: 65px;">
+			<form method="post" action="../index.jsp"
+				style="margin-bottom: 20%; margin-left: 65px;">
 				<div class="form-group" style="padding-left: 300px;">
-					<input type="submit" value="로그인 화면으로 돌아가기"
+					<input type="submit" value="메인 화면으로 돌아가기"
 						class="btn btn-black px-5 text-white"
-						style=" width : 200px; height : 50px; text-size: 25px; margin-top: 10px; width: 254px; border-radius: 10px 10px 10px 10px; background-color: #4CAF50; color: white; border-color: white;">
+						style="width: 200px; height: 50px; text-size: 25px; margin-top: 10px; width: 254px; border-radius: 10px 10px 10px 10px; background-color: #4CAF50; color: white; border-color: white;">
 				</div>
 			</form>
 		</div>
