@@ -202,7 +202,7 @@ body, h1, h2, h3, h4, h5, h6 {
 				<div class="w_right_list_item_header">
 					<h3>예약정보</h3>
 				</div>
-				<form method="post" action="rooms_reservation3_member.jsp">
+				<form method="post" action="rooms_reservation3_member.jsp" name="room_post">
 					<div>
 						<div class="w_right_list_check_detail">
 							<li class=w_right_list_check_detail_toggle>체크인<span
@@ -215,7 +215,7 @@ body, h1, h2, h3, h4, h5, h6 {
 						</div>
 						<div class="w_right_list_toggel">
 							<li><input id="input_room_name" type="text" name="rm_cls"
-								value="객실을 선택하세요" class="w_reservation2_room_rm_cls"></li>
+								placeholder="객실을 선택하세요" value="" class="w_reservation2_room_rm_cls"></li>
 						</div>
 					</div>
 					<div class="w_right_list_cart_total">
@@ -228,8 +228,7 @@ body, h1, h2, h3, h4, h5, h6 {
 					<div>
 						<input type="hidden" name="rm_rsv_num" value="<%=rm_rsv_num%>">
 						<input type="hidden" name="rm_rsv_adult" value="<%=rm_rsv_adult%>">
-						<button type="submit" class="w_right_list_next" value="다음 단계">다음
-							단계</button>
+						<input type="button" class="w_right_list_next" onclick="room_next_post()" value="다음 단계">
 					</div>
 				</form>
 				<div class="w_cart_button">

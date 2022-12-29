@@ -2,19 +2,20 @@ package reservation;
 
 public class roomReservationBean {
 
-	String RM_RSV_CHK_IN = "";
-	String RM_RSV_CHK_OUT = "";
-	int RM_RSV_NUM = 0;
-	int RM_RSV_ADULT = 0;
-	String RM_RSV_NAME = "";
-	String RM_RSV_EMAIL	= "";
-	String RM_RSV_PHONE	= "";
-	String RM_RSV_PW = "";
-	String RM_RSV_USE = "";
-	String RM_RSV_CONTENT = "";
-	int RM_KEY = 0;
-	int MEM_KEY = 0;
-	int AD_UC_KEY = 0;
+	private String RM_RSV_CHK_IN = "";
+	private String RM_RSV_CHK_OUT = "";
+	private int RM_RSV_NUM = 0;
+	private int RM_RSV_ADULT = 0;
+	private String RM_RSV_NAME = "";
+	private String RM_RSV_EMAIL	= "";
+	private String RM_RSV_PHONE	= "";
+	private String RM_RSV_PW = "";
+	private String RM_RSV_USE = "";
+	private String RM_RSV_CONTENT = "";
+	private int RM_KEY = 0;
+	private int MEM_KEY = 0;
+	private int AD_UC_KEY = 0;
+	
 	public String getRM_RSV_CHK_IN() {
 		return RM_RSV_CHK_IN;
 	}

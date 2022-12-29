@@ -615,7 +615,7 @@ public class Mypage {
 
 					hbeanInfo.setMEM_NAME(rs.getString("MEM_NAME"));
 					hbeanInfo.setMEM_BIRTH(rs.getDate("MEM_BIRTH"));
-					hbeanInfo.setMEM_EMAIL(rs.getString("MEM_EMAIL"));
+					hbeanInfo.setMEM_MAIL(rs.getString("MEM_MAIL"));
 					hbeanInfo.setMEM_PHONE(rs.getString("MEM_PHONE"));
 					hamList.addElement(hbeanInfo);
 
@@ -642,7 +642,7 @@ public class Mypage {
 
 				conn = pool.getConnection();
 
-				String sql = "update member set MEM_EMAIL = ? where MEM_KEY = ?";
+				String sql = "update member set MEM_MAIL = ? where MEM_KEY = ?";
 
 				pstmt = conn.prepareStatement(sql);
 

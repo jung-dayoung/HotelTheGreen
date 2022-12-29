@@ -7,7 +7,7 @@ public class hamBeanInfo{
 	
 	private String MEM_NAME = "";
 	private Date MEM_BIRTH;
-	private String MEM_EMAIL = "";
+	private String MEM_MAIL = "";
 	private String MEM_PHONE = "";
 	
 	
@@ -23,11 +23,11 @@ public class hamBeanInfo{
 	public void setMEM_BIRTH(Date MEM_BIRTH) {
 		this.MEM_BIRTH = MEM_BIRTH;
 	}
-	public String getMEM_EMAIL() {
-		return MEM_EMAIL;
+	public String getMEM_MAIL() {
+		return MEM_MAIL;
 	}
-	public void setMEM_EMAIL(String MEM_EMAIL) {
-		this.MEM_EMAIL = MEM_EMAIL;
+	public void setMEM_MAIL(String MEM_MAIL) {
+		this.MEM_MAIL = MEM_MAIL;
 	}
 	public String getMEM_PHONE() {
 		return MEM_PHONE;

@@ -96,9 +96,11 @@ public class rsv_info_insert extends HttpServlet {
         response.sendRedirect("/rooms_reservation3_member.jsp");
       }
     } else {
-        request.getSession().setAttribute("messageType", "예약 실패");
-        request.getSession().setAttribute("messageContent", "예약 정보가 다 입력되지 않았습니다.");
-        response.sendRedirect("/rooms_reservation3_member.jsp");
+    	request.setAttribute("mis", "a");
+        //request.getSession().setAttribute("messageType", "예약 실패");
+        //request.getSession().setAttribute("messageContent", "예약 정보가 다 입력되지 않았습니다.");
+        //response.sendRedirect("./room/rooms_reservation3_member.jsp");
+        request.getRequestDispatcher("./room/rooms_reservation3_member.jsp").forward(request, response);
 
     }
   }

@@ -3,7 +3,7 @@
 <%
 	//session.setAttribute("MEM_KEY", 10);
 	//int mem_key = (int) session.getAttribute("MEM_KEY");
-	
+	session.removeAttribute("MEM_KEY");
 %>	
 
 <!DOCTYPE html>
@@ -43,7 +43,7 @@ body, h1, h2, h3, h4, h5, h6 {
 								<h3 class="w_reservaion_date_h3">예약안내</h3>
 							</div>
 							<div class="w_reservaion_date_celendar">
-								<input type="date" id="w_choice_date_in" value=""></input> <input
+								<input type="date" id="w_choice_date_in" onchange="dateChange();" value=""></input> <input
 									type="date" id="w_choice_date_out" value=""></input>
 							</div>
 						</div>
@@ -80,13 +80,13 @@ body, h1, h2, h3, h4, h5, h6 {
 		<!-- rooms_rservation1_date 오른쪽 정보부분 시작-->
 		<div class="w_reservation_date_right_area">
 			<div class="w_reservation_date_right_main">
-				<form method="post" action="rooms_reservation2_room.jsp">
+				<form method="post" action="rooms_reservation2_room.jsp" name="date_post">
 					<div class="w_reservation_date_container">
 						<div>체크인</div>
 						<div>
 							<input type="text" placeholder="Date In"
 								class="w_reservation_right_check_in"
-								name="rm_rsv_chk_in" id="w_reservation_date_in" value="2022-12-21">
+								name="rm_rsv_chk_in" id="w_reservation_date_in" value="">
 						</div>
 					</div>
 					<div class="w_reservation_date_container">
@@ -94,7 +94,7 @@ body, h1, h2, h3, h4, h5, h6 {
 						<div>
 							<input type="text" placeholder="Date Out"
 								class="w_reservation_right_check_out"
-								name="rm_rsv_chk_out" id="w_reservation_date_out" value="2022-12-22">
+								name="rm_rsv_chk_out" id="w_reservation_date_out" value="">
 						</div>
 					</div>
 					<div class="w_reservation_date_room_people">
@@ -114,8 +114,7 @@ body, h1, h2, h3, h4, h5, h6 {
 						</div>
 					</div>
 					<div class="w_reservation_search_room_top">
-						<button type="submit" class="w_reservation_search_room"
-							onclick="location.href='rooms_reservation2_room.jsp'" value="객실조회">객실조회</button>
+						<input type="button" class="w_reservation_search_room" onclick="date_next_post()" value="객실조회">
 					</div>
 				</form>
 
@@ -123,7 +122,14 @@ body, h1, h2, h3, h4, h5, h6 {
 			</div>
 		</div>
 	</div>
-
+	<script>
+	var now_utc = Date.now()
+    var timeOff = new Date().getTimezoneOffset() * 60000;
+    var today = new Date(now_utc - timeOff).toISOString().split("T")[0];
+    document.getElementById("w_choice_date_in").setAttribute("min", today);
+    
+	
+	</script>
 	<!-- rooms_rservation1_date 오른쪽 정보부분 끝-->
 
 	<!-- Footer -->

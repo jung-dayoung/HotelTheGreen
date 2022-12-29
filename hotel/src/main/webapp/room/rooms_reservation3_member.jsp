@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="reservation.*, java.util.*"%>
-
+<%
+	request.setAttribute("commonURL", request.getContextPath());
+%>
 <jsp:useBean id="room" class="reservation.room" />
 
 <%
@@ -37,19 +39,29 @@ if(request.getParameter("rm_rsv_adult") != null)
 String rm_rsv_pri = rm_rsv_chk_in + room.roomSelect(rm_rsv_chk_in, rm_rsv_chk_out, rm_cls);
 
 System.out.println(rm_rsv_pri);
+if (request.getAttribute("mis") != null){
 %>
-
+<script>
+alert("고객 정보를 입력해주세요");
+</script>
+<%
+}
+%>
 <!DOCTYPE html>
 <html>
-<title>W3.CSS</title>
+<title>Hotel The Green</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../css/style.css">
-<link rel="stylesheet" href="../css/button.css">
+<link rel="stylesheet" href="${commonURL}/css/style.css">
+<link rel="stylesheet" href="${commonURL}/css/button.css">
 <!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-<link rel="stylesheet" href="../css/reservation_css.css">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="${commonURL}/css/reservation_css.css">
 
 <body>
 	<!-- header -->
@@ -144,8 +156,16 @@ System.out.println(rm_rsv_pri);
 								class="w_reservation_finish" value="예약완료"></input></a>
 						</div>
 					</form>
+					
 					<div class="w_cart_button">
-						<a class="w_cart_button_left" href="rooms_reservation_member.jsp">< 이전</a> <a
+						<form method="post" action="rooms_reservation2_room.jsp">
+						<input type="hidden" name="rm_rsv_chk_in" value="<%=rm_rsv_chk_in%>">
+						<input type="hidden" name="rm_rsv_chk_out" value="<%=rm_rsv_chk_out%>">
+						<input type="hidden" name="rm_rsv_num" value="<%=rm_rsv_num%>">
+					
+							<button type="submit" class="w_cart_button_left">이전</button> 
+						</form>
+						<a
 							class="w_cart_button_right" href="rooms_reservation1_date.jsp">일정 다시 선택</a>
 					</div>
 				</div>

@@ -68,7 +68,7 @@ body, h1, h2, h3, h4, h5, h6 {
 		<h3 class="text-start fs-2 text-dark" id="t_my_info_sec">이메일</h3>
 		<div class="row g-0">
 			<div class="col">
-				<p><%=hbInfo.getMEM_EMAIL()%></p>
+				<p><%=hbInfo.getMEM_MAIL()%></p>
 			</div>
 			<div class="col-md-auto">
 				<button type="button" class="btn btn-success" data-bs-toggle="modal"

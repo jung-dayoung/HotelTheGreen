@@ -12,7 +12,7 @@ body {
 }
 
 h4 {
-	color: #f0a500;
+	color: #4CAF50;
 }
 
 input, input[type="radio"]+label, input[type="checkbox"]+label:before,
@@ -324,14 +324,14 @@ select option {
 	height:30px;
 }
 .input_total_count_people{
-	color:#f9b90f;
+	color:#4CAF50;
 	padding-left:205px;
 	margin-left:70px;
 }
 .w_reservation_rm_rsv_adult{
 	border: none; background: transparent;
 	text-align:right;
-	color:#f9b90f;
+	color:#4CAF50;
 	width:20px;
 	padding:0px;	
 }
@@ -352,7 +352,7 @@ select option {
 	width:130px;
 	border: none; background: transparent;
 	text-align:right;
-	color:#f9b90f;
+	color:#4CAF50;
 	margin-left:130px;
 	padding-top:10px;
 	padding-right:0px;
@@ -377,9 +377,9 @@ select option {
 	color:#183C7D;
 }
 .w_reservation_finish{
-    border: 1px solid #F9B90F;
+    border: 1px solid #4CAF50;
     border-radius: 5px;
-    background-color: #F9B90F;
+    background-color: #4CAF50;
     margin-top:10px;
     margin-bottom:30px;   
     padding:13px 20px 13px 20px;
@@ -411,6 +411,9 @@ select option {
     text-align: center;
     
 }
+
+.w_cart_button_left:hover{color:#4CAF50;}
+
 .w_cart_button_right{
     color: #666B7B;
     border: 1px solid #BDBDBD;
@@ -421,6 +424,8 @@ select option {
     padding:12px 12px;
     text-align: center;    
 }
+
+.w_cart_button_right:hover{color:#4CAF50;}
 .w_right_list_item_header > h3{
 	color: #183c7d;
 	margin-top:0px;
@@ -428,14 +433,14 @@ select option {
 .w_reservation_member_check_in_text{
 	border: none; background: transparent;
 	text-align:right;
-	color:#f9b90f;
+	color:#4CAF50;
 	width:250px;
 	margin-left:90px;
 }
 .w_reservation_member_check_out_text{
 	border: none; background: transparent;
 	text-align:right;
-	color:#f9b90f;
+	color:#4CAF50;
 	width:250px;
 	margin-left:77px;
 }
