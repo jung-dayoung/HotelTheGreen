@@ -60,6 +60,7 @@ location.href="../index.jsp"</script>
 		
 <% 
 		//데이터 베이스 클래스 객체 생성
+		
 	 	diningDAO ddao = new diningDAO();
 		ddao.insertDining(dbean);
 %>

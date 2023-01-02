@@ -28,7 +28,7 @@ public class diningDAO {
 		}
 		
 		//데이터 베이스에 한사람의 회원 정보를 저장해주는 매소드
-		public diningBean insertDining(diningBean dbean){
+		public void insertDining(diningBean dbean){
 			
 			
 			 System.out.println("연결1");
@@ -55,9 +55,7 @@ public class diningDAO {
 				System.out.println("실패");
 			}finally{
 			      pool.freeConnection(conn);
-			    }			
-			  return dbean;
-			 
+			    }						 
 		}
 		
 		public diningBean oneSelectRestaurant(int RS_KEY){
