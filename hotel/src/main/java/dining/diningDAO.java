@@ -28,10 +28,10 @@ public class diningDAO {
 		}
 		
 		//데이터 베이스에 한사람의 회원 정보를 저장해주는 매소드
-		public int insertDining(diningBean dbean){
+		public diningBean insertDining(diningBean dbean){
 			
-			  int ok = 0;
-			 			System.out.println("연결1");
+			
+			 System.out.println("연결1");
 			try {
 			getcon();
 			String SQL = "INSERT INTO dining_reservation(DN_RSV_DATE, DN_RSV_ADULT, DN_RSV_NAME, DN_RSV_PHONE, DN_RSV_PW, RS_KEY, ML_KEY) VALUES(?,?,?,?,?,?,?)";
@@ -53,9 +53,10 @@ public class diningDAO {
 			}catch(Exception e) {
 				e.printStackTrace();
 				System.out.println("실패");
-			}	
-			
-			  System.out.println(ok); return ok;
+			}finally{
+			      pool.freeConnection(conn);
+			    }			
+			  return dbean;
 			 
 		}
 		
@@ -81,7 +82,9 @@ public class diningDAO {
 				 
 			    }catch(Exception e){
 			    	e.printStackTrace();
-			   	}	
+			    }finally{
+				      pool.freeConnection(conn);
+				    }	
 			return dbean;	
 		}
 
@@ -109,7 +112,9 @@ public class diningDAO {
 				 
 			    }catch(Exception e){
 			    	e.printStackTrace();
-			   	}	
+			    }finally{
+				      pool.freeConnection(conn);
+				    }	
 			return dbean;	
 		}
 		
@@ -140,7 +145,10 @@ public class diningDAO {
 				 
 			    }catch(Exception e){
 			    	e.printStackTrace();
-			   	}	
+			   	}
+			 finally{
+		      pool.freeConnection(conn);
+		    }
 			 //리턴 
 			return bean;	
 		}
