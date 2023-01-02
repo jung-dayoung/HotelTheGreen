@@ -31,7 +31,7 @@ public class room {
 
       con = pool.getConnection();
 
-      String query = "select * from ROOM_REVIEW as A " +
+      String query = "select * from REVIEW as A " +
           "join ROOM_RESERVATION as B " +
           "on A.RM_RSV_KEY = B.RM_RSV_KEY " +
           "join ROOM as C " +
@@ -76,7 +76,7 @@ public class room {
 
       con = pool.getConnection();
 
-      String query = "select A.RV_SC_KEY from ROOM_REVIEW as A " +
+      String query = "select A.RV_SC_KEY from REVIEW as A " +
           "join ROOM_RESERVATION as B " +
           "on A.RM_RSV_KEY = B.RM_RSV_KEY " +
           "join ROOM as C " +
