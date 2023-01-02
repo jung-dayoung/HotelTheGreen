@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="../css/memberStyle.css">
 </head>
 <body>
-
+	<!-- tesst -->
 	<!-- Navigation Bar -->
 	<%@include file="../include/navbar.jsp"%>
 
