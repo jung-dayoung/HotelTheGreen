@@ -46,4 +46,3 @@
 	}
 	document.regForm.submit();
 }
-  
