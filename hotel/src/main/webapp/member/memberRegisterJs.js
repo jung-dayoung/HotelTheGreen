@@ -55,11 +55,7 @@ function inputCheck(){
 			document.regFrm.MEM_PW.focus();
 			return;
 		}
-		if(document.regFrm.MEM_PW.value.search(document.regFrm.MEM_PW.value) != -1){
-			alert("비밀번호에 아이디를 포함할 수 없습니다.");
-			document.regFrm.MEM_PW.focus();
-			return;
-		}
+	
 		//비밀번호 조건
 		
 		if(document.regFrm.MEM_REPW.value==""){
