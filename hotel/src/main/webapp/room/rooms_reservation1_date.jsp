@@ -5,7 +5,7 @@
 	//int mem_key = (int) session.getAttribute("MEM_KEY");
 	session.removeAttribute("MEM_KEY");
 %>	
-
+text
 <!DOCTYPE html>
 <html>
 <head>
