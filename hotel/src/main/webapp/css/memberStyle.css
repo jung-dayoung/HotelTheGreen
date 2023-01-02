@@ -1,0 +1,77 @@
+.memContainer{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+	text-align: left;
+}
+.memContainer> table tr td h1{
+	text-align: center;
+	padding-top: 40px;
+	padding-bottom:40px;
+	color:#59DA50;
+}
+.memContainer> table tr td div{
+	text-align: center;
+}
+.memContainer> table{
+	border-radius: 30px !important;
+	border: 3px solid #35B62C;
+	margin-top: 150px;
+	margin-bottom:150px;
+}
+.memContainer> table tr td{
+	padding-top:20px;
+	padding-bottom:10px;
+	padding-left:30px;
+	padding-right:30px;
+}
+.memContainer> table tr td .inputForm{
+	border:1px solid #ABABAB;
+	border-radius: 10px;
+	position:relative;
+	right:3vmax;
+	top:0vmax;
+	padding:7px  40px 7px 40px;
+	
+}
+.memContainer> table tr td label{
+	position:relative;
+	left:4vmax;
+	bottom:1.5vmax;
+}
+
+
+/* 버튼 */
+.idCheckBtn{
+	background-color:#59DA50;
+	border: 0px;
+	border-radius: 5px;
+	padding-top:6.75px;
+	padding-bottom:6.75px;
+	padding-left:10px;
+	padding-right:10px;
+	cursor: default;
+	color: white;
+	position:relative;
+	right:3.295vmax;
+}
+.idCheckBtn:active, .idCheckBtn:focus { 
+	border: none !important; box-shadow: none !important; 
+}
+.memberInsertBtn{
+	background-color:#59DA50;
+	border: 0px;
+	border-radius: 5px;
+	padding:10px 25px 10px 25px;
+	cursor: default;
+	color: white;
+	font-size: 16px;
+	position:relative;
+	top:1.6vmax;
+	left:0vmax;
+}
+.memberInsertBtn:active, .memberInsertBtn:focus { 
+	border: none !important; box-shadow: none !important; 
+}
+	
