@@ -3,7 +3,7 @@ package memberPackage;
 import java.sql.*;
 
 public class memberRegisterBean {
-
+	private int MEM_KEY = 0;
 	private String MEM_NAME = "";
 	private String MEM_BIRTH = "";
 	private String MEM_ID = "";
@@ -12,6 +12,14 @@ public class memberRegisterBean {
 	private String MEM_MAIL = "";
 	private int AD_UC_KEY = 0;
 
+	
+	
+	public int getMEM_KEY() {
+		return MEM_KEY;
+	}
+	public void setMEM_KEY(int mEM_KEY) {
+		MEM_KEY = mEM_KEY;
+	}
 	public int getAD_UC_KEY() {
 		return AD_UC_KEY;
 	}

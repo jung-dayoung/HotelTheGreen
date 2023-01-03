@@ -28,8 +28,8 @@ public class memberIdCheckServlet extends HttpServlet {
 		
 		
 		if(result == 1) {
-			request.getSession().setAttribute("messageType", "성공");
-			request.getSession().setAttribute("messageContent", "Success");			
+			request.getSession().setAttribute("messageType", "Success!");
+			request.getSession().setAttribute("messageContent", "Success!");			
 			response.sendRedirect("./memberLogin.jsp");	
 			return;
 		}else {

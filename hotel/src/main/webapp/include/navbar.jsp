@@ -1,9 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<jsp:useBean id="login" class="memberPackage.memberLoginMethod" />
 <!--  세션에 웹페이지 기본 경로(path) commonURL 이란 키값으로 저장하기.
 	a 태그에 href 를 이용한 하이퍼링크 사용시 ${commonURL} 작성 후 경로 지정하기. -->
 <%
 	request.setAttribute("commonURL", request.getContextPath());
+	
+	int key = 0;
+	int ad_key = 0;
+	
+	if (request.getAttribute("MEM_ID") != null) {
+		key = login.sessionSetMEMKEY((String)request.getAttribute("MEM_ID"), (String)request.getAttribute("MEM_PW"));
+		ad_key = login.sessionSetADUCKEY((String)request.getAttribute("MEM_ID"), (String)request.getAttribute("MEM_PW"));
+		session.setAttribute("MEM_KEY", key);
+		session.setAttribute("AD_UC_KEY", ad_key);
+	}
 %>
 
 <!DOCTYPE html>
@@ -23,7 +34,6 @@
 </head>
 
 <body class="w3-white">
-
 <div class="w3-bar w3-white w3-large">
   <a href="${commonURL}/index.jsp" class="w3-bar-item w3-button w3-green w3-mobile"><i class="fa fa-bed w3-margin-right"></i>Hotel The Green</a>
   <a href="${commonURL}/room/roomInfo.jsp" class="w3-bar-item w3-button w3-mobile">Rooms</a>
@@ -32,8 +42,9 @@
   <a href="#contact" class="w3-bar-item w3-button w3-mobile">예약하기</a>
   <a href="${commonURL}/dining/dining1_info.jsp" class="w3-bar-item w3-button w3-mobile">다이닝안내</a>
   <a href="${commonURL}/cscenter/cscenter_faq1.jsp" class="w3-bar-item w3-button w3-mobile">고객센터</a>
-  <a href="${commonURL}/member/member_login.jsp" class="w3-bar-item w3-button w3-right w3-light-grey w3-mobile">로그인</a>
+  <a href="${commonURL}/member/member_login.jsp" class="w3-bar-item w3-button w3-right w3-light-grey w3-mobile" id="login_btn">로그인</a>
   <a href="#contact" class="w3-bar-item w3-button w3-right w3-light-grey w3-mobile" data-bs-toggle="modal" data-bs-target="#reservation_check_nomember">예약조회</a>
+  <a href="${commonURL}/member/memberLogoutProc.jsp" class="w3-bar-item w3-button w3-right w3-light-grey w3-mobile" id="logout_btn">로그아웃</a>
 </div>
 
 <!-- 비회원 예약조회 모달 -->
@@ -58,6 +69,27 @@
     </div>
   </div>
 </div>
+
+	<!-- 로그인에 성공하지 않았다면 -->
+<% 	if(session.getAttribute("messageType") != "success"){%>
+	<script>
+		const a = document.getElementById("login_btn"); //로그인 보임
+		const b = document.getElementById("logout_btn"); //로그인아웃 안보임
+		
+		a.style.display = "block";
+		b.style.display = "none";
+	</script>
+	<!-- 로그인에 성공했다면 -->
+<%}else{%>
+	<script>	
+		const a = document.getElementById("login_btn"); //로그인 안보임
+		const b = document.getElementById("logout_btn"); //로그인아웃 보임
+		
+		a.style.display = "none";
+		b.style.display = "block";
+		
+	</script>
+<%}%>
 
 <!-- 부트스트랩 JavaScript 링크 -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>

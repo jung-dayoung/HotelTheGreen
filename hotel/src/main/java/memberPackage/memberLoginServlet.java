@@ -27,7 +27,7 @@ public class memberLoginServlet extends HttpServlet {
 
 		String MEM_ID = request.getParameter("MEM_ID");
 		String MEM_PW = request.getParameter("MEM_PW");
-
+		
 		try {
 
 			memberLoginMethod login = new memberLoginMethod();
@@ -40,10 +40,13 @@ public class memberLoginServlet extends HttpServlet {
 				return;
 			}
 			if (login.memberLogin(MEM_ID, MEM_PW)) {
-
-				request.getSession().setAttribute("messageType", "success!");
+				
+				request.setAttribute("MEM_ID", MEM_ID);
+				request.setAttribute("MEM_PW", MEM_PW);
+				request.getSession().setAttribute("messageType", "success");
 				request.getSession().setAttribute("messageContent", "로그인에 성공");
-				response.sendRedirect("index.jsp");
+				request.getRequestDispatcher("./index.jsp").forward(request, response);
+				//response.sendRedirect("index.jsp");
 
 			} else {
 				request.getSession().setAttribute("messageType", "오류 메세지");

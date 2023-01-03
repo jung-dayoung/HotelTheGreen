@@ -1,8 +1,13 @@
 package memberPackage;
 
 //메서드 파일
-import java.sql.*;
-import java.util.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.servlet.http.HttpSession;
+
 
 public class memberLoginMethod {
 
@@ -41,9 +46,9 @@ public class memberLoginMethod {
 			conn = pool.getConnection();
 
 			String sql = "select * from MEMBER where MEM_ID = ? and MEM_PW = ?";
-
+			int MEM_KEY=0;
 			pstmt = conn.prepareStatement(sql);
-
+			
 			pstmt.setString(1, MEM_ID);
 			pstmt.setString(2, MEM_PW);
 
@@ -51,6 +56,7 @@ public class memberLoginMethod {
 
 			if (rs.next()) {
 				ok = true;
+				MEM_KEY = rs.getInt(MEM_KEY);
 			}
 
 		} catch (Exception ex) {
@@ -74,6 +80,71 @@ public class memberLoginMethod {
 			}
 		}
 		return ok;
+	}
+	
+	public int sessionSetMEMKEY(String id, String pw) {
+		
+		int key = 0;
+
+		Connection conn = null;
+
+		PreparedStatement pstmt = null;
+
+		ResultSet rs = null;
+		
+		try {
+			conn = pool.getConnection();
+			
+			String query = "select * from MEMBER where MEM_ID = ? and MEM_PW = ?";
+			
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, id);
+			pstmt.setString(2, pw);
+			
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				
+				key = rs.getInt("MEM_KEY");
+				
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	return key;
+	}
+	public int sessionSetADUCKEY(String id, String pw) {
+		
+		int key = 0;
+
+		Connection conn = null;
+
+		PreparedStatement pstmt = null;
+
+		ResultSet rs = null;
+		
+		try {
+			conn = pool.getConnection();
+			
+			String query = "select * from MEMBER where MEM_ID = ? and MEM_PW = ?";
+			
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, id);
+			pstmt.setString(2, pw);
+			
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				
+				key = rs.getInt("AD_UC_KEY");
+				
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	return key;
 	}
 
 }
