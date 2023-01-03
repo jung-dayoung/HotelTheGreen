@@ -19,10 +19,10 @@
       <h2 class="nav-link fs-1 text-light">manager님</h2>
     </li>
     <li class="nav-item">
-      <a class="nav-link fs-3 text-light" href="${commonURL}/manage/salesMgr/sales.jsp">매출 조회</a>
+      <a class="nav-link fs-3 text-light" href="${commonURL}/manage/sales_manage/sales.jsp">매출 조회</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link fs-3 text-light" href="${commonURL}/manage/salesMgr/expendse.jsp">지출 내역</a>
+      <a class="nav-link fs-3 text-light" href="${commonURL}/manage/sales_manage/expendse.jsp">지출 내역</a>
     </li>
   </ul>
 </div>

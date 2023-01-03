@@ -17,7 +17,7 @@
 
 <ul class="nav justify-content-sm-around align-items-center" style="background-color: #363c52; height: 10vh;">
   <li class="nav-item">
-    <a class="nav-link text-light fs-4 m-1 p-1" href="${commonURL}/manage/memberMgr/member_manage.jsp">회원 관리</a>
+    <a class="nav-link text-light fs-4 m-1 p-1" href="${commonURL}/manage/member_manage/member_manage.jsp">회원 관리</a>
   </li>
   <li class="nav-item">
     <a class="nav-link text-light fs-4 m-1 p-1" href="#">객실 / 예약 관리</a>
@@ -29,7 +29,7 @@
     <a class="nav-link text-light fs-4 m-1 p-1" href="#">문의 / 리뷰 관리</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link text-light fs-4 m-1 p-1" href="${commonURL}/manage/salesMgr/sales.jsp">매출 관리</a>
+    <a class="nav-link text-light fs-4 m-1 p-1" href="${commonURL}/manage/sales_manage/sales.jsp">매출 관리</a>
   </li>
 </ul>
 
