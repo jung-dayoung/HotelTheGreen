@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+.cash_card_chart {
+    position: relative;
+    width: 30vw;
+    height: 30vw;
+    border-radius: 50%;
+    transition: 0.3s;
+    background:lightgray;
+    display:inline-block;
+    top: 11%;
+    left: 16%;
+}
+
+.cash_card_chart_center{
+    content:'';
+    background: #363c52;  /* 백그라운드 컬러로 중앙가리기 */
+    position: absolute;
+    top:50%; left:50%;
+    width:20vw; height:20vw; /* 도넛의 너비 설정 */
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+#mainCon {
+    display:flex;
+    width:100%;
+    margin: 2% 4%;
+}
+
+#conSec1 {
+    background-color: #363c52;
+    padding:0;
+    height: 20vh;
+}
+
+#conNav1, #conNav2, #conNav3, #conNav4 {
+    background-color: #363c52;
+    padding: 5.5px 10px 5.5px 10px
+}
+
+#table1 {
+    background-color: #363c52;
+    margin-top: 20%;
+}
+
+#conSec2 {
+    display:flex;
+    height: 30.9vh;
+}
+
+#csCrSec {
+    background-color: #363c52;
+    padding:0;
+    height: 75.8vh;
+}
+
+#monSec {
+    background-color: #363c52;
+    padding:0;
+    height: 24.6vh;
+}
