@@ -41,7 +41,7 @@ public class member_list_servlet extends HttpServlet {
 	        (request.getParameter("mem_mail") == null || request.getParameter("mem_mail") == "") && (request.getParameter("ad_key") == null || request.getParameter("ad_key") == "")) {
 	      request.setAttribute("dis", "dis");
 	    }
-	    request.getRequestDispatcher("./manage/memberMgr/member_manage.jsp").forward(request, response);
+	    request.getRequestDispatcher("./manage/member_manage/member_manage.jsp").forward(request, response);
 
 	}
 

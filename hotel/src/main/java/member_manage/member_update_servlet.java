@@ -62,7 +62,7 @@ public class member_update_servlet extends HttpServlet {
 	      request.setAttribute("update", "update");
 	      function.updatespecific(request.getParameter("mem_specific"), Integer.parseInt(request.getParameter("mem_key_u")));
 	    }
-	    request.getRequestDispatcher("./manage/memberMgr/member_manage.jsp").forward(request, response);
+	    request.getRequestDispatcher("./manage/member_manage/member_manage.jsp").forward(request, response);
 	}
 
 }

@@ -45,7 +45,7 @@ public class select_item_servlet extends HttpServlet {
 	    if (request.getParameter("ad_key") != null) {
 	      request.setAttribute("ad_key", 2);
 	    }
-	    request.getRequestDispatcher("./manage/memberMgr/member_manage.jsp").forward(request, response);
+	    request.getRequestDispatcher("./manage/member_manage/member_manage.jsp").forward(request, response);
 
 
 	}
