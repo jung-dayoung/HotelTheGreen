@@ -1,0 +1,19 @@
+.offcanvas-body{
+	
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	padding-top:75px;
+	padding-bottom:75px;
+}
+.offcanvas-body> div {
+	margin-top:100px;
+}
+.offcanvas-body> div a{
+	text-decoration:none;
+	font-size:30px;
+	font-weight:600;
+}
+a:link{
+	color: black;
+}
