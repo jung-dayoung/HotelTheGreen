@@ -43,10 +43,16 @@
 	input[id*="answer"] + label + div + p{
 		display:inline-block;
 		padding:20px;
+		
 }
 	input[id*="answer"]:checked + label + div {
 		max-height:100px;
 }
+.accordion> div p{
+	font-size:18px;
+}
+
+
 	.btm_deco{
 		margin-top:200px;
 	}

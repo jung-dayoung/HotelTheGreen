@@ -31,52 +31,40 @@
 			<!-- FAQ 내용 -->
 			<div class="accordion">
 			     <input type="radio" name="accordion" id="answer01">
-				 	<label for="answer01">객실문의1</label>
+				 	<label for="answer01">객실예약 취소는 언제까지 가능한가요?</label>
 						<div>
-							<p>여기에 추가되는 부분이 자주 묻는 질문의 
-						    답변내용이 이 영역에 들어갑니다. 이곳에서 자연스럽게
-						    나오는 효과를 볼 수 있습니다. 이 기능으로 자주 묻는
-						    질문컨텐츠를 만들 수 있습니다. 
+							<p>체크인 전날 기준 오후 11시 59분 이전 무료 취소 가능하며, <br/>
+							이 후 취소 또는 변경 시 1박에 대한 위약금이 100% 청구됩니다. 다만,<br/>
+							 예약 조건에 따라 규정이 상이하므로 문의사항은 Service One (+00 151515)으로 연락 주시기 바랍니다.
 						    </p>
 			            </div>
 			     
 			     <input type="radio" name="accordion" id="answer02">
-				 	<label for="answer02">객실문의2</label>
+				 	<label for="answer02">객실 체크인과 체크아웃 시간은 언제입니까?</label>
 						<div>
-							<p>여기에 추가되는 부분이 자주 묻는 질문의 
-						    	답변내용이 이 영역에 들어갑니다. 이곳에서 자연스럽게
-						        나오는 효과를 볼 수 있습니다. 이 기능으로 자주 묻는
-						        질문컨텐츠를 만들 수 있습니다. 
+							<p>체크인 시간은 오후 3시, 체크아웃 시간은 오후 12시입니다.
 						        </p>
 						</div>
 				
 				<input type="radio" name="accordion" id="answer03">
-				 	<label for="answer03">객실문의3</label>
+				 	<label for="answer03">객실에 두고 온 물품은 어떻게 찾나요?</label>
 						<div>
-							<p>여기에 추가되는 부분이 자주 묻는 질문의 
-						    답변내용이 이 영역에 들어갑니다. 이곳에서 자연스럽게
-						    나오는 효과를 볼 수 있습니다. 이 기능으로 자주 묻는
-						    질문컨텐츠를 만들 수 있습니다. 
+							<p>분실물에 대한 문의는 오전 9시부터 오후 5시까지 <br/>
+							Service One (+00 151515)으로 연락주시면 확인 가능합니다.
 						    </p>
 			            </div>
 			     
 			     <input type="radio" name="accordion" id="answer04">
-				 	<label for="answer04">객실문의4</label>
+				 	<label for="answer04">객실에 귀중품을 보관하는 금고가 있나요?</label>
 						<div>
-							<p>여기에 추가되는 부분이 자주 묻는 질문의 
-						    	답변내용이 이 영역에 들어갑니다. 이곳에서 자연스럽게
-						        나오는 효과를 볼 수 있습니다. 이 기능으로 자주 묻는
-						        질문컨텐츠를 만들 수 있습니다. 
+							<p>고객 편의를 위해 객실 내 금고를 비치하고 있습니다.
 							</p>
 						</div>
 			     
 			     <input type="radio" name="accordion" id="answer05">
-				 	<label for="answer05">객실문의5</label>
+				 	<label for="answer05">다른 사이트를 통한 예약 건도 직접 취소 가능한가요?</label>
 						<div>
-							<p>여기에 추가되는 부분이 자주 묻는 질문의 
-						    	답변내용이 이 영역에 들어갑니다. 이곳에서 자연스럽게
-						        나오는 효과를 볼 수 있습니다. 이 기능으로 자주 묻는
-						        질문컨텐츠를 만들 수 있습니다. 
+							<p>개인정보보호의 이유로 호텔에서는 취소가 어렵습니다.<br/>타 사이트를 통한 예약 건은 예약하신 사이트를 통해 취소 가능합니다.
 							</p>
 						</div>     
 			</div>	
