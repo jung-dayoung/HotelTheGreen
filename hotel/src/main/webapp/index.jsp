@@ -10,15 +10,10 @@
 <link rel="stylesheet" href="css/index_style.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
-<style>
-	body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif;
-	transform : rotate(0.04deg); 
-	}
-@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap'); </style>
+
 </head>
 
 <body class="w3-light-grey">

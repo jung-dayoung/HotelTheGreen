@@ -60,16 +60,19 @@
 	    	<a href="${commonURL}/mypage/my_info.jsp">내 정보 변경</a>
 	    	</div>
 	    	<div>
-	    	<a class="mt-5" href="${commonURL}/mypage/my_point.jsp">포인트</a>
+	    	<a href="${commonURL}/mypage/my_point.jsp">포인트</a>
 	    	</div>
 	    	<div>
-	     	<a class="mt-5" href="${commonURL}/mypage/room_reservation_check_plan_member.jsp">룸 예약</a>
+	     	<a href="${commonURL}/mypage/room_reservation_check_plan_member.jsp">룸 예약</a>
 	     	</div>
 	    	<div>
-	     	<a class="mt-5" href="${commonURL}/mypage/dining_reservation_check_plan_member.jsp">식사 예약</a>
+	     	<a href="${commonURL}/mypage/dining_reservation_check_plan_member.jsp">식사 예약</a>
 	     	</div>
 	    	<div>
-	     	<a class="mt-5" href="${commonURL}/mypage/my_counsel.jsp">문의 내역</a>
+	     	<a href="${commonURL}/cscenter/cscenter_counsel.jsp">문의하기</a>
+	     	</div>
+	    	<div>
+	     	<a href="${commonURL}/mypage/my_counsel.jsp">문의내역</a>
 	     	</div>
 	    
 	  </div>

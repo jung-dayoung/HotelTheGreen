@@ -7,13 +7,16 @@
 	padding-bottom:75px;
 }
 .offcanvas-body> div {
-	margin-top:100px;
+	margin-top:80px;
 }
 .offcanvas-body> div a{
 	text-decoration:none;
 	font-size:30px;
 	font-weight:600;
 }
-a:link{
+.offcanvas-body> div a{
+	color:black;
+}
+.offcanvas-body> div a:link{
 	color: black;
 }
