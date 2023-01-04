@@ -28,13 +28,13 @@ public class diningDAO {
 		}
 		
 		//데이터 베이스에 한사람의 회원 정보를 저장해주는 매소드
-		public void insertDining(diningBean dbean){
+		public void insertDiningNonMember(diningBean dbean){
 			
 			
 			 System.out.println("연결1");
 			try {
 			getcon();
-			String SQL = "INSERT INTO dining_reservation(DN_RSV_DATE, DN_RSV_ADULT, DN_RSV_NAME, DN_RSV_PHONE, DN_RSV_PW, RS_KEY, ML_KEY) VALUES(?,?,?,?,?,?,?)";
+			String SQL = "INSERT INTO dining_reservation(DN_RSV_DATE, DN_RSV_ADULT, DN_RSV_NAME, DN_RSV_PHONE, DN_RSV_PW, RS_KEY, ML_KEY, DN_RSV_USE) VALUES(?,?,?,?,?,?,?,'이용예정')";
 			//쿼리를 사용하도록 설정 
 				stmt = conn.prepareStatement(SQL);
 				//?에 맞게 데이터를 맵핑
@@ -58,6 +58,36 @@ public class diningDAO {
 			    }						 
 		}
 		
+		
+		public void insertDiningMember(diningBean dbean){
+			
+		 			System.out.println("연결2-1");
+			try {
+			getcon();
+			String SQL = "INSERT INTO dining_reservation(DN_RSV_DATE, DN_RSV_ADULT, DN_RSV_NAME, DN_RSV_PHONE, RS_KEY, ML_KEY, MEM_KEY, DN_RSV_USE) VALUES(?,?,?,?,?,?,?, '이용예정')";
+			//쿼리를 사용하도록 설정 
+				stmt = conn.prepareStatement(SQL);
+				//?에 맞게 데이터를 맵핑
+				System.out.println("연결2-2");
+
+				stmt.setString(1,dbean.getDN_RSV_DATE());
+				stmt.setInt(2,dbean.getDN_RSV_ADULT());
+				stmt.setString(3,dbean.getDN_RSV_NAME());
+				stmt.setString(4,dbean.getDN_RSV_PHONE());
+				stmt.setString(5,dbean.getRS_KEY());
+				stmt.setString(6,dbean.getML_KEY());
+				stmt.setInt(7,dbean.getMEM_KEY());
+				stmt.executeUpdate();//insert,update,delete 시 사용하는 메소드 
+				//5.자원 반납 
+				conn.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+				System.out.println("실패2");
+			}	
+						 
+		}
+		
+		
 		public diningBean oneSelectRestaurant(int RS_KEY){
 			
 			  diningBean dbean = new diningBean();
@@ -80,9 +110,7 @@ public class diningDAO {
 				 
 			    }catch(Exception e){
 			    	e.printStackTrace();
-			    }finally{
-				      pool.freeConnection(conn);
-				    }	
+			   	}	
 			return dbean;	
 		}
 
@@ -110,9 +138,7 @@ public class diningDAO {
 				 
 			    }catch(Exception e){
 			    	e.printStackTrace();
-			    }finally{
-				      pool.freeConnection(conn);
-				    }	
+			   	}	
 			return dbean;	
 		}
 		
@@ -143,10 +169,7 @@ public class diningDAO {
 				 
 			    }catch(Exception e){
 			    	e.printStackTrace();
-			   	}
-			 finally{
-		      pool.freeConnection(conn);
-		    }
+			   	}	
 			 //리턴 
 			return bean;	
 		}

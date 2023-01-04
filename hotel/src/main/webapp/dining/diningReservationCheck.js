@@ -28,6 +28,30 @@
 		return;
 	}
 	
+	var chk_radio = document.getElementsByName('ML_KEY');
+
+		var sel_type = null;
+
+		for(var i=0;i<chk_radio.length;i++){
+
+			if(chk_radio[i].checked == true){ 
+
+				sel_type = chk_radio[i].value;
+
+			}
+
+		}
+
+
+		if(sel_type == null){
+
+		alert("시간을 선택해 주세요");
+
+			return;
+
+		}
+	
+
 	if(ck==null){
 
 	if(document.regForm.DN_RSV_PW.value==""){

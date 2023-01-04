@@ -70,22 +70,28 @@ body, h1, h2, h3, h4, h5, h6 {
 				<td><h1 class="dining_maintitle dining_title diningcenter">예약고객정보</h1></td>
 				
 				<tr>
-				<td rowspan="2">희망식당<br><input class="diningcenter" type="text" name="restaurantName" value="<%=dbean.getRestaurantName()%>" disabled>
-								<input type="hidden" name="RS_KEY" value="<%=id%>"></td>
-				<td>예약자명<input type="text" class="form-control" name="DN_RSV_NAME" placeholder="예약자명" value="<% if(mem_key==0){} else { %><%=meminfo.getMEM_NAME()%> <%}; %>"></td>
+				<td rowspan="2">희망식당<br>
+					<input class="diningcenter" type="text" name="restaurantName" value="<%=dbean.getRestaurantName()%>" disabled>
+					<input type="hidden" name="RS_KEY" value="<%=id%>"></td>
+				<td>예약자명
+					<input type="text" class="form-control" name="DN_RSV_NAME" placeholder="예약자명" value="<% if(mem_key==0){} else { %><%=meminfo.getMEM_NAME()%><%}; %>">
+					<input type="hidden" name="MEM_KEY" value="<%=mem_key%>">
+				</td>
 				</tr>
 				
 				<tr>
 				
-				<td>인 원 수<br><input type="number" class="form-control" name="DN_RSV_ADULT" placeholder="인원수">	</td>
+				<td>인 원 수<br>
+					<input type="number" class="form-control" name="DN_RSV_ADULT" placeholder="인원수">	</td>
 				</tr>
 				
 				<tr>
-				<td>희망 날짜<br> <input type="date" name="DN_RSV_DATE" id="Date"></td>
-				<td>휴대폰번호
-						<input type="text" class="form-control" name="DN_RSV_PHONE" placeholder="휴대폰번호" value="<% if(mem_key==0){} else { %><%=meminfo.getMEM_PHONE()%><%}; %>">
-					</td>
-					</tr>
+				<td>희망 날짜<br>
+					<input type="date" name="DN_RSV_DATE" id="Date"></td>
+				<td>휴대폰번호	
+					<input type="text" class="form-control" name="DN_RSV_PHONE" placeholder="휴대폰번호" value="<% if(mem_key==0){} else { %> <%=meminfo.getMEM_PHONE()%><%};%>">
+				</td>
+				</tr>
 					
 					<tr>
 					<td>희망 시간<br>

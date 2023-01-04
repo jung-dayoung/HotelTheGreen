@@ -52,6 +52,7 @@ location.href="../index.jsp"</script>
 
 <% 
 		request.setCharacterEncoding("UTF-8");
+		System.out.println("멤버키 출력:" + request.getParameter("MEM_KEY"));
 
 %>
 		<jsp:useBean id="dbean" class="dining.diningBean">
@@ -60,9 +61,14 @@ location.href="../index.jsp"</script>
 		
 <% 
 		//데이터 베이스 클래스 객체 생성
+		diningDAO ddao = new diningDAO();
 		
-	 	diningDAO ddao = new diningDAO();
-		ddao.insertDining(dbean);
+
+	 	if("0".equals(request.getParameter("MEM_KEY"))){
+			ddao.insertDiningNonMember(dbean);
+	 	}
+	 	else{
+		ddao.insertDiningMember(dbean);}
 %>
 
 

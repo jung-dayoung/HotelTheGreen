@@ -52,7 +52,8 @@ body, h1, h2, h3, h4, h5, h6 {
 		String DN_RSV_PHONE = request.getParameter("DN_RSV_PHONE");
 		int RS_KEY = Integer.parseInt(request.getParameter("RS_KEY"));
 		String ML_KEY = request.getParameter("ML_KEY");
-		
+		String MEM_KEY = request.getParameter("MEM_KEY");
+
 		diningDAO ddao = new diningDAO();
 		diningBean restaurantName = ddao.oneSelectRestaurant(RS_KEY);
 		diningBean diningTime = ddao.oneSelectTime(ML_KEY);
@@ -103,7 +104,9 @@ body, h1, h2, h3, h4, h5, h6 {
             	<input type="hidden" name="DN_RSV_DATE" value="<%=DN_RSV_DATE%>">
             	<input type="hidden" name="ML_KEY" value="<%=ML_KEY%>">
             	<input type="hidden" name="DN_RSV_ADULT" value="<%=DN_RSV_ADULT%>">
-            	<input type="hidden" name="DN_RSV_PHONE" value="<%=DN_RSV_PHONE%>"> 
+            	<input type="hidden" name="DN_RSV_PHONE" value="<%=DN_RSV_PHONE%>">
+            	<input type="hidden" name="MEM_KEY" value="<%=MEM_KEY%>"> 
+            	 
             	<!-- hidden타입으로 값 전달 -->
             </td>
           </tr>
