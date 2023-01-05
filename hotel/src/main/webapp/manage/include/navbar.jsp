@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<ul class="nav justify-content-sm-around align-items-center" style="background-color: #363c52; height: 10vh;">
+<ul class="nav justify-content-sm-around align-items-center" style="background-color: #363c52; height: 10vh; margin-bottom: 5%;">
   <li class="nav-item">
     <a class="nav-link text-light fs-4 m-1 p-1" href="${commonURL}/manage/member_manage/member_manage.jsp">회원 관리</a>
   </li>
@@ -23,7 +23,7 @@
     <a class="nav-link text-light fs-4 m-1 p-1" href="#">객실 / 예약 관리</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link text-light fs-4 m-1 p-1" href="#">다이닝 관리</a>
+    <a class="nav-link text-light fs-4 m-1 p-1" href="${commonURL}/manage/dining_manage/dining_manage.jsp">다이닝 관리</a>
   </li>
   <li class="nav-item">
     <a class="nav-link text-light fs-4 m-1 p-1" href="#">문의 / 리뷰 관리</a>

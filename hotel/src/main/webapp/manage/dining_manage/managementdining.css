@@ -1,0 +1,257 @@
+@charset "EUC-KR";
+
+body, h1, h2, h3, h4, h5, h6 {
+	font-family: "Raleway", Arial, Helvetica, sans-serif;
+	transform: rotate(0.04deg);
+}
+
+
+#bar-example-20 {
+  height: 200px;
+}
+
+#tablemargin {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.tableSize {
+	width: 100%;
+}
+
+.txtLeft {
+	text-align: left;
+}
+.txtCenter {
+	text-align: center;
+}
+.txtRight {
+	text-align: right;
+}
+
+.mainColor {
+	background-color: #363c52;
+}
+
+#barColor1 {
+	background-color: #6a78b9;
+}
+
+#barColor2 {
+	background-color: #735ba5;
+}
+
+#barColor3 {
+	background-color: #9fa8d1;
+}
+
+.fontColor {
+	color: white;
+}
+#fontColor2 {
+	color: red;
+}
+
+.height1 {
+	height: 30%;
+}
+
+.height2 {
+	height: 40%;
+}
+
+.height2-1 {
+	height: 100%;
+}
+
+.scroll {
+	overflow:auto;
+}
+
+.height2-2 {
+	height: 100%;
+	position: relative;
+	margin: auto;
+}
+
+
+.height20{
+	height: 20%;
+}
+.height80{
+	height: 80%;
+}
+
+
+.height3 {
+	height: 35%;
+	margin-bottom: 10%;
+}
+.width1 {
+  width: 80%;
+  margin: auto;
+}
+
+
+.line2_1 {
+	width: 60%;
+	height: 100%;
+	
+}
+
+.line2_2 {
+	width: 38%;
+	height: 100%;
+}
+.line3_1 {
+	width: 30%;
+	height: 100%;
+	transform: translate(20%, 20%);
+	
+}
+
+.line3_2 {
+	width: 60%;
+	height: 100%;
+	margin: auto;
+}
+
+.line3_2-1 {
+	width: 50%;
+    height: 90%;
+    margin-right: 10%;
+}
+.margin1 {
+  margin-bottom: 3%; 
+}
+
+.margin2 {
+  margin-right: 3%;
+}
+
+.margin3 {
+	margin-left: auto;
+}
+
+.marginauto{
+	margin: auto;
+}
+
+.display1 {
+ 	display: inline-block;
+ 	 position:absolute ;
+ 	 right:0;
+}
+
+.displayFlex {
+	display: flex;
+}
+
+.float1 {
+	float: left;
+}
+
+
+
+.layer1 {
+	width: 100%;
+    height: 90%;
+ 	justify-content: center;
+  	align-items: center;
+  	margin: auto;
+  	margin-bottom: 5%;
+  	}
+
+#axes-example-1 {
+  height: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  margin-right: 3%;
+}
+
+.line2-2-2 {
+	margin-left: 20%;
+	margin: auto;	
+}
+
+
+
+.pie-chart2 { 
+  display:inline-block;
+  	object-fit: cover;
+  
+  position:relative;
+  width: 40%;
+  /* height: 70%; */
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-110%, -50%);
+}
+.pie-chart2  .center{
+  position:absolute;
+  width:50%; 
+  height: 50%;
+  background :#363c52;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;	
+  transform: translate(-50%, -50%);
+}
+
+.pie-chart2::after{
+ 	display: block;
+	 content: "";
+	 padding-bottom: 100%;
+	 }
+
+.myCanvas {
+	
+	width: 10px;
+	height: 10px;
+	margin-right: 5px;
+}
+
+.cash_card_chart_center {
+	content: '';
+	background: #363c52; /* 백그라운드 컬러로 중앙가리기 */
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 70%;
+	height: 70%; /* 도넛의 너비 설정 */
+	border-radius: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.cash_card_chart-bar {
+	position: relative;
+  	border-radius: 50%;
+
+	width: 50%;
+	background: conic-gradient(#6a78b9 216deg, #735ba5 216deg); /* 차트 설정 */
+
+	display: inline-block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.cash_card_chart-bar::after{
+ 	display: block;
+	 content: "";
+	 padding-bottom: 100%;
+	 }
+
+
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif;
+	transform : rotate(0.04deg); 
+	}
+	
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	margin-bottom: 10%;
+}
