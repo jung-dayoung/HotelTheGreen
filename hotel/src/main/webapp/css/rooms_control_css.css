@@ -1,0 +1,275 @@
+@charset "UTF-8";
+
+body {
+	background-color: #676D7F;
+	/* 켈린더, 월별,일별 조회 부분*/
+}
+
+.w_calender {
+	border: 1px solid #353C52;
+	background-color: #353C52;
+}
+
+.w_input_day_month {
+	border: 1px solid #353C52;
+	background-color: #353C52;
+	padding-top: 30px;
+	border-radius: 20px 20px 0px 0px;
+}
+
+.w_select_rooms_month_day {
+	margin-right: 300px;
+	margin-top:46px;
+}
+
+.w_total_calender_container {
+	text-align: center;
+	margin-left: 300px;
+}
+
+li {
+	list-style: none;
+	padding-left: 0px;
+}
+
+.w_calender_table {
+	margin: auto;
+	margin-top: 30px;
+}
+
+.w_total_rooms_select_container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+
+.w_calender {
+	font-size: 40px;
+	text-align: center;
+	height: 700px;
+	width: 800px;
+	border-radius: 0px 0px 20px 20px;
+}
+
+.w_select_month_container {
+	border: 1px solid #353C52;
+	background-color: #353C52;
+	width: 400px;
+	height: 350px;
+	margin-bottom: 20px;
+	border-radius: 20px 20px 20px 20px;
+}
+
+.w_select_day_container {
+	border: 1px solid #353C52;
+	background-color: #353C52;
+	height: 378px;
+	width: 400px;
+	border-radius: 20px 20px 20px 20px;
+	margin-top:30px;
+}
+.day_month_submit_button{
+	background-color:#676D7F;
+	border:1px solid #676D7F;
+	border-radius: 5px 5px 5px 5px;
+	color:#FFFFFF;
+	margin-left:10px;
+}
+.w_select_month_h3 {
+	border-bottom: 1px solid black;
+	color: #FFFFFF;
+	margin-left: 30px;
+	margin-right: 30px;
+	margin-top:30px;
+	display:flex;
+	flex-direction:row;
+	justify-content:space-between;
+}
+.w_select_month_h3_right{
+	margin-right:18px;
+}
+.w_select_day_h3 {
+	border-bottom: 1px solid black;
+	color: #FFFFFF;
+	margin-top:30px;	
+	margin-left: 30px;
+	margin-right: 30px;
+	display:flex;
+	flex-direction:row;
+	justify-content:space-between;
+}
+.w_select_day_h3_right{
+	margin-right:18px;
+}
+.w_calender_td {
+	color: #FFFFFF;
+	text-align: center;
+	padding: 20px 20px 20px 20px;
+}
+.w_calender_button{
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 40px;
+	background-color:transparent;
+	border: none;
+}
+
+.w_select_month_li {
+	color: #FFFFFF;
+	margin-bottom: 30px;
+	width:310px;
+	display:flex;
+	justify-content:space-between;	
+}
+#w_select_date_in{
+	width:25px;
+	font-size:18px;
+	border: none;
+	background: transparent;
+	color: #FFFFFF;
+}
+.w_select_day_li {
+	color: #FFFFFF;
+	margin-bottom: 25px;
+	width:310px;
+	display:flex;
+	justify-content:space-between;
+}
+
+/* 객실 관리 페이지*/
+.w_rooms_check_total_container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.select_day_button{
+	background-color:#676D7F;
+	border:1px solid #676D7F;
+	border-radius: 5px 5px 5px 5px;
+	color:#FFFFFF;
+	margin-left:10px;
+}
+.W_rooms_check_nomal_total {
+	display: flex;
+	justify-content:space-between;
+	width: 1200px;
+	color: #FFFFFF;
+}
+.w_rooms_check_h3{
+	display:flex;
+	flex-direction:colume;
+	justify-content:space-between;
+	margin-top:50px;
+}
+
+.select_day_form{
+	margin-bottom:10px;
+}
+.w_rooms_check_nomal {
+	border: 1px solid #353C52;
+	background-color: #353C52;
+	width:240px;
+	height:240px;
+	border-radius: 20px 20px 20px 20px;
+	font-size:22px;
+}
+
+.check_top{
+	display: flex;
+	justify-content:space-between;
+	width:170px;
+	margin-top:20px;
+}
+
+.check_bottom{
+	padding-top:100px;
+}
+
+.w_rooms_check_h3 > h3{
+	margin-left:30px;
+}
+
+
+.RM_NUM_select{
+	 width: 80px;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 12px 0px 12px 13px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    margin-right: 10px;
+}
+
+.RM_NUM_select:focus{
+	border: 1px solid #353C52;
+    box-sizing: border-box;
+    border-radius: 10px;
+    outline: 3px solid #353C52;
+    border-radius: 10px;
+}
+
+.RM_USE_select{
+	width: 90px;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 12px 0px 12px 13px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    margin-right: 10px;
+}
+
+.RM_USE_select:focus{
+	border: 1px solid #353C52;
+    box-sizing: border-box;
+    border-radius: 10px;
+    outline: 3px solid #353C52;
+    border-radius: 10px;
+}
+
+.RM_CLEAN_select{
+	width: 90px;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 12px 0px 12px 13px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    margin-right: 10px;
+    
+}
+
+.RM_CLEAN_select:focus{
+	border: 1px solid #353C52;
+    box-sizing: border-box;
+    border-radius: 10px;
+    outline: 3px solid #353C52;
+    border-radius: 10px;
+}
+
+.RM_NUM_USE_submit{
+	background-color:#353C52;
+	border:1px solid #353C52;
+	border-radius: 5px 5px 5px 5px;
+    margin-right: 10px;
+	color:#FFFFFF;
+}
+
+.RM_NUM_CLEAN{
+	background-color:#353C52;
+	border:1px solid #353C52;
+	border-radius: 5px 5px 5px 5px;
+	color:#FFFFFF;
+	
+	
+}
