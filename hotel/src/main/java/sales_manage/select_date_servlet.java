@@ -9,8 +9,8 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@WebServlet("/expendseListServlet")
-public class expendse_list_servlet extends HttpServlet {
+@WebServlet("/duaDisServlet")
+public class select_date_servlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
 
@@ -28,10 +28,12 @@ public class expendse_list_servlet extends HttpServlet {
     if (request.getParameter("start") == null || request.getParameter("start") == "" ||
     request.getParameter("end") == null || request.getParameter("end") == ""){
 
-      request.setAttribute("sec", request.getParameter("sec"));
-      request.setAttribute("sort", request.getParameter("sort"));
+      request.setAttribute("start", request.getParameter("start"));
+      request.setAttribute("end", request.getParameter("end"));
+      request.setAttribute("year", Integer.parseInt(request.getParameter("year")));
+      request.setAttribute("month", Integer.parseInt(request.getParameter("month")));
       request.setAttribute("mis", "mis");
-      request.getRequestDispatcher("./manage/salesMgr/expendse.jsp").forward(request, response);
+      request.getRequestDispatcher("./manage/salesMgr/sales.jsp").forward(request, response);
     }
 
     try {
@@ -40,22 +42,24 @@ public class expendse_list_servlet extends HttpServlet {
       Date date2 = format.parse(request.getParameter("end"));
 
       if (date1.compareTo(date2) < 0 || date1.compareTo(date2) == 0) {
+
         request.setAttribute("start", request.getParameter("start"));
         request.setAttribute("end", request.getParameter("end"));
-        request.setAttribute("sec", request.getParameter("sec"));
-        request.setAttribute("sort", request.getParameter("sort"));
+        request.setAttribute("year", Integer.parseInt(request.getParameter("year")));
+        request.setAttribute("month", Integer.parseInt(request.getParameter("month")));
+
 
       } else {
 
         request.setAttribute("start", request.getParameter("start"));
-        request.setAttribute("end", request.getParameter("start"));
-        request.setAttribute("sec", request.getParameter("sec"));
-        request.setAttribute("sort", request.getParameter("sort"));
+        request.setAttribute("end", request.getParameter("end"));
+        request.setAttribute("year", Integer.parseInt(request.getParameter("year")));
+        request.setAttribute("month", Integer.parseInt(request.getParameter("month")));
         request.setAttribute("mis", "mis");
 
       }
 
-      request.getRequestDispatcher("./manage/sales_manage/expendse.jsp").forward(request, response);
+      request.getRequestDispatcher("./manage/sales_manage/sales.jsp").forward(request, response);
 
     } catch (Exception e) {
       System.out.println(e);

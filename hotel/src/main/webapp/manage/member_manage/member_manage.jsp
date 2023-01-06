@@ -3,6 +3,7 @@
 <%@ page import="member_manage.member_bean" %>
 <%@ page import="java.util.Vector" %>
 <%@ page import="java.text.DecimalFormat" %>
+<%@ page import="reservation.reviewBean" %>
 <jsp:useBean id="function" class="member_manage.member_function" />
 <%
   DecimalFormat decFormat = new DecimalFormat("###,###");
@@ -49,12 +50,9 @@
 </script>
 <% } %>
 
-
-<!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>회원 관리</title>
+  <title>회원 관리</title>
   <!-- CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   <link rel="stylesheet" href="../../css/salse_expendse.css">

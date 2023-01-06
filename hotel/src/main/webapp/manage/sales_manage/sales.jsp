@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <%@ page import="java.util.Calendar" %>
 <%@ page import="java.util.Vector" %>
 <%@ page import="sales_manage.sales_bean" %>
@@ -7,7 +5,11 @@
 <%@ page import="java.text.DateFormat" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Date" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+
 <jsp:useBean id="function" class="sales_manage.sales_function" />
+
 <%
   request.setAttribute("commonURL", request.getContextPath());
   DecimalFormat decFormat = new DecimalFormat("###,###");
@@ -49,24 +51,24 @@
   alert("기간을 다시 선택하세요.")
 </script>
 <% } %>
-
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>매출 조회</title>
+  <meta charset="UTF-8">
+  <title>매출 조회</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css">
   <!-- CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   <link rel="stylesheet" href="${commonURL}/css/salse_expendse.css">
+
   <style>
-    .cash_card_chart-bar{
-        width: inherit;
-        height: inherit;
-        border-radius: 50%;
-        background: conic-gradient(#6a78b9 <%=deg%>deg, #735ba5 <%=deg%>deg);
-    }
-  </style>  
+      .cash_card_chart-bar{
+          width: inherit;
+          height: inherit;
+          border-radius: 50%;
+          background: conic-gradient(#6a78b9 <%=deg%>deg, #735ba5 <%=deg%>deg);
+      }
+  </style>
 </head>
 <body style="background-color: #686C7F;">
 
