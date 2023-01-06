@@ -1,0 +1,78 @@
+
+
+
+.container_data{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+}
+
+
+.con_memberKey{
+	background-color: #363c52;	
+	text-align:center;
+	margin-bottom: 40px;
+	padding:30px 24.38px 30px 24.38px;
+	color:white;
+
+}
+.container_data> h2{
+	color:white;
+	margin:0;
+	position:relative;
+	right:13%;
+	padding: 20px;
+}
+.con_rsv_find{
+	background-color: #363c52;	
+	text-align:center;
+	margin-bottom: 40px;
+	padding:30px 30px 30px 30px;
+	color:white;
+
+}
+
+.con_rsv_room{
+	background-color: #363c52;	
+	text-align:center;
+	margin-bottom: 40px;
+	padding:30px 63.9px 30px 63.9px;
+	color:white;
+}
+
+.con_rsv{
+	background-color: #363c52;	
+	text-align:center;
+	margin-bottom: 40px;
+	padding:30px 37.25px 30px 37.25px;
+	color:white;
+}
+
+.sub_btn{
+	padding:10px;
+	margin-top:50px;
+	margin-bottom:0px;
+	border-radius:7px;
+	border:0px;
+	color:white;
+	background-color:262530;
+	font-size:18px;
+}
+
+/*paymentPage*/
+.con_rsv_payment{
+	background-color: #363c52;	
+	text-align:center;
+	margin-bottom: 40px;
+	padding:30px 37.25px 30px 37.25px;
+	color:white;
+}
+.con_payment{
+	background-color: #363c52;	
+	text-align:center;
+	margin-bottom: 40px;
+	padding:30px 37.25px 30px 37.25px;
+	color:white;
+}
+
