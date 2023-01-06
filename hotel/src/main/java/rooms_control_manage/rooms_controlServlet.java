@@ -22,7 +22,7 @@ public class rooms_controlServlet extends HttpServlet {
 		
 		rooms_controlBean controlBean = new rooms_controlBean();
 		
-		
+		// 1번 -> 월별 조회 메서드 컨트롤     2 -> 일별 조회 메서드 컨트롤     3 -> 사용유무 컨트롤 메서드      4 -> 청소관리 컨트롤 메서드
 		if(Integer.parseInt(request.getParameter("button_key")) == 1) {
 			if((request.getParameter("year") != null && request.getParameter("year") != "")&&(request.getParameter("month") != null && request.getParameter("month") != "")&&
 				(request.getParameter("normal") != null || request.getParameter("normal") != "")&&(request.getParameter("superial") != null || request.getParameter("superial") != "")&&
