@@ -22,12 +22,12 @@
 - <img src="https://img.shields.io/badge/JDK 11-2C2255?style=flat&logoColor=white"/>
 - server: <img src="https://img.shields.io/badge/apache tomcat-9.0-2C2255?style=flat&logo=Apache Tomcat&logoColor=white"/>
 - Framework: <img src="https://img.shields.io/badge/Eclipse-2C2255?style=flat&logo=Eclipse IDE&logoColor=white"/>
-- Database: <img src="https://img.shields.io/badge/MySQL 8.0.31-4479A1?style=flat&logo=MySQL&logoColor=white"/>,
-<img src="https://img.shields.io/badge/HeidiSQL-1B72BE?style=flat&logoColor=white"/>, <img src="https://img.shields.io/badge/MySQLWorkbench-02458D?style=flat&logoColor=white"/>
-- 협업툴: <img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white"/>, 
-<img src="https://img.shields.io/badge/Sourcetree-0052CC?style=flat&logo=Sourcetree&logoColor=white"/>, 
-<img src="https://img.shields.io/badge/Slack-4A154B?style=flat&logo=Slack&logoColor=white"/>,
-<img src="https://img.shields.io/badge/Trello-0052CC?style=flat&logo=Trello&logoColor=white"/>, <img src="https://img.shields.io/badge/typed-2C5BB4?style=flat&logoColor=white"/>
+- Database: <img src="https://img.shields.io/badge/MySQL 8.0.31-4479A1?style=flat&logo=MySQL&logoColor=white"/>
+<img src="https://img.shields.io/badge/HeidiSQL-1B72BE?style=flat&logoColor=white"/> <img src="https://img.shields.io/badge/MySQLWorkbench-02458D?style=flat&logoColor=white"/>
+- 협업툴: <img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white"/>
+<img src="https://img.shields.io/badge/Sourcetree-0052CC?style=flat&logo=Sourcetree&logoColor=white"/>
+<img src="https://img.shields.io/badge/Slack-4A154B?style=flat&logo=Slack&logoColor=white"/>
+<img src="https://img.shields.io/badge/Trello-0052CC?style=flat&logo=Trello&logoColor=white"/> <img src="https://img.shields.io/badge/typed-2C5BB4?style=flat&logoColor=white"/>
 
 ### 💎주요기능
 #### 사용자
