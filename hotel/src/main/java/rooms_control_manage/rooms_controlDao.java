@@ -164,52 +164,73 @@ public class rooms_controlDao {
 	  }
 	  
 	  // 각 룸의 번호와 사용유무, 청소유무 select 메서드
-	  public Vector<rooms_controlBean> room_select(String today, int RM_CLS_KEY) {
-		  
-		  Vector<rooms_controlBean> list = new Vector<rooms_controlBean>();
-		  
-		  
-		  try {
-			  con = pool.getConnection();
-			  
-			  String query ="select A.RM_KEY, A.RM_NUM, A.RM_USE, A.RM_CLEAN, B.RM_RSV_CHK_OUT, max(A.RM_NUM = B.RM_NUM) as ABC from room as A, ( "
-					  + "SELECT RM_NUM, B.RM_RSV_CHK_OUT "
-					  + "FROM ROOM AS A "
-					  + "join room_reservation as B "
-					  + "on A.RM_KEY = B.RM_KEY "
-					  + "where B.RM_RSV_CHK_IN = ? and A.RM_CLS_KEY = ? "
-					  + "group by A.RM_NUM "
-					  + "order by A.RM_NUM) as B "
-					  + "where A.RM_CLS_KEY = ? "
-					  + "group by A.RM_NUM "
-					  + "order by A.RM_KEY";
-			  
-			  pstmt = con.prepareStatement(query);
-			  pstmt.setString(1, today);
-			  pstmt.setInt(2, RM_CLS_KEY);
-			  pstmt.setInt(3, RM_CLS_KEY);
-			  
-			  rs = pstmt.executeQuery();
-			  
-			  while (rs.next()) {
-				  rooms_controlBean controlBean = new rooms_controlBean();
-				  
-				  controlBean.setRM_KEY(rs.getInt("RM_KEY"));
-				  controlBean.setRM_NUM(rs.getString("RM_NUM"));
-				  controlBean.setRM_USE(rs.getString("RM_USE"));
-				  controlBean.setRM_CLEAN(rs.getString("RM_CLEAN"));
-				  controlBean.setRM_RSV_CHK_OUT(rs.getString("RM_RSV_CHK_OUT"));
-				  controlBean.setABC(rs.getString("ABC"));
-				  list.addElement(controlBean);
-			  }
-			  
-		  }catch(Exception ex) {
-			  System.out.println("Exception" + ex);
-		  }finally {
-			  pool.freeConnection(con);
+	  public Vector<rooms_controlBean> room_select(String day, int key) {
+		    Vector<rooms_controlBean> list = new Vector<rooms_controlBean>();
+
+		    PreparedStatement pstmtt = null;
+		    ResultSet rss = null;
+
+		    try {
+		      con = pool.getConnection();
+
+		      String query1 = "select A.*, sum(A.RM_KEY = B.RM_KEY) as SEL, sum(if (A.RM_KEY = B.RM_KEY, B.RM_RSV_KEY, 0)) as RM_RSV_KEY, max(if (A.RM_KEY = B.RM_KEY, B.RM_RSV_CHK_OUT, '0')) as RM_RSV_CHK_OUT "
+		    		  + "from ROOM as A, ( "
+		    				 + "select RM_KEY, RM_RSV_KEY, RM_RSV_CHK_OUT from ROOM_RESERVATION "
+		    				 + "where RM_RSV_CHK_IN <= ? and RM_RSV_CHK_OUT > ? and not RM_RSV_USE = '취소') as B "
+		    				 + "WHERE A.RM_CLS_KEY = ? "
+		    				 + "group by A.RM_KEY "
+		    				 + "order by A.RM_KEY ";
+
+		      String query2 = "select * from ROOM where RM_CLS_KEY = ? order by RM_KEY";
+
+		      pstmt = con.prepareStatement(query1);
+		      pstmt.setString(1, day);
+		      pstmt.setString(2, day);
+		      pstmt.setInt(3, key);
+		      rs = pstmt.executeQuery();
+
+		      pstmtt = con.prepareStatement(query2);
+		      pstmtt.setInt(1, key);
+		      rss = pstmtt.executeQuery();
+
+		      int c = 0;
+		      while (rs.next()) {
+
+		    	rooms_controlBean bean1 = new rooms_controlBean();
+		        bean1.setRM_KEY(rs.getInt("RM_KEY"));
+		        bean1.setRM_NUM(rs.getString("RM_NUM"));
+		        bean1.setRM_USE(rs.getString("RM_USE"));
+		        bean1.setRM_CLEAN(rs.getString("RM_CLEAN"));
+		        bean1.setRM_RSV_KEY(rs.getInt("RM_RSV_KEY"));
+		        bean1.setSEL(rs.getInt("SEL"));
+		        bean1.setRM_RSV_CHK_OUT(rs.getString("RM_RSV_CHK_OUT"));
+		        list.addElement(bean1);
+		        System.out.println(1);
+		        c++;
+		      }
+		      if (c == 0) {
+		        while (rss.next()) {
+
+		        rooms_controlBean bean2 = new rooms_controlBean();
+		          bean2.setRM_KEY(rss.getInt("RM_KEY"));
+		          bean2.setRM_NUM(rss.getString("RM_NUM"));
+		          bean2.setRM_USE(rss.getString("RM_USE"));
+		          bean2.setRM_CLEAN(rss.getString("RM_CLEAN"));
+		          bean2.setRM_RSV_KEY(0);
+		          bean2.setSEL(0);
+		          list.addElement(bean2);
+		          System.out.println(2);
+
+		        }
+		      }
+
+		    } catch(Exception e) {
+		      System.out.println("Error :" + e);
+		    } finally {
+		      pool.freeConnection(con);
+		    }
+		    return list;
 		  }
-		  return list;
-	  }
 	  
 	  //청소 상태 변경
 	  public void clean_update(String RM_NUM, String RM_CLEAN) {

@@ -14,9 +14,10 @@ public class rooms_controlBean {
 	private String RM_NUM = "";
 	private String RM_USE = "";
 	private String RM_CLEAN = "";
-	private String ABC = "";
 	private int RM_KEY = 0;
 	private String RM_RSV_CHK_OUT="";
+	private int RM_RSV_KEY;
+	private int SEL;
 	
 	public int getYear() {
 		return year;
@@ -91,12 +92,7 @@ public class rooms_controlBean {
 	public void setRM_CLEAN(String RM_CLEAN) {
 		this.RM_CLEAN = RM_CLEAN;
 	}
-	public String getABC() {
-		return ABC;
-	}
-	public void setABC(String ABC) {
-		this.ABC = ABC;
-	}
+	
 	public int getRM_KEY() {
 		return RM_KEY;
 	}
@@ -108,6 +104,18 @@ public class rooms_controlBean {
 	}
 	public void setRM_RSV_CHK_OUT(String RM_RSV_CHK_OUT) {
 		this.RM_RSV_CHK_OUT = RM_RSV_CHK_OUT;
+	}
+	public int getRM_RSV_KEY() {
+		return RM_RSV_KEY;
+	}
+	public void setRM_RSV_KEY(int RM_RSV_KEY) {
+		this.RM_RSV_KEY = RM_RSV_KEY;
+	}
+	public int getSEL() {
+		return SEL;
+	}
+	public void setSEL(int SEL) {
+		this.SEL = SEL;
 	}
 	
 	

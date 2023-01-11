@@ -84,8 +84,6 @@ li {
 	display:flex;
 	flex-direction:row;
 	justify-content:space-between;
-	padding-bottom: 10px;
-	margin-bottom:15px;
 }
 .w_select_month_h3_right{
 	margin-right:18px;
@@ -99,8 +97,6 @@ li {
 	display:flex;
 	flex-direction:row;
 	justify-content:space-between;
-	padding-bottom: 10px;
-	margin-bottom:15px;
 }
 .w_select_day_h3_right{
 	margin-right:18px;
@@ -127,7 +123,7 @@ li {
 }
 #w_select_date_in{
 	width:25px;
-	font-size:20px;
+	font-size:18px;
 	border: none;
 	background: transparent;
 	color: #FFFFFF;
@@ -139,12 +135,15 @@ li {
 	display:flex;
 	justify-content:space-between;
 }
-
-/* 객실 관리 페이지*/
-.w_rooms_check_total_container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+.day_month_submit_button{
+	background-color:#676D7F;
+	border:1px solid #676D7F;
+	border-radius: 5px 5px 5px 5px;
+	color:#FFFFFF;
+	margin-left:10px;
+}
+.w_select_month_div{
+	margin-top:15px;
 }
 .select_day_button{
 	background-color:#676D7F;
@@ -152,6 +151,21 @@ li {
 	border-radius: 5px 5px 5px 5px;
 	color:#FFFFFF;
 	margin-left:280px;
+}
+
+/* 객실 관리 페이지*/
+.w_rooms_check_total_container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+.select_day_button{
+	background-color:#676D7F;
+	border:1px solid #676D7F;
+	border-radius: 5px 5px 5px 5px;
+	color:#FFFFFF;
+	margin-left:10px;
 }
 .W_rooms_check_nomal_total {
 	display: flex;
@@ -164,7 +178,6 @@ li {
 	flex-direction:colume;
 	justify-content:space-between;
 	margin-top:50px;
-	margin-bottom:10px;
 }
 
 .select_day_form{
@@ -173,6 +186,16 @@ li {
 .w_rooms_check_nomal {
 	border: 1px solid #353C52;
 	background-color: #353C52;
+	width:240px;
+	height:240px;
+	border-radius: 20px 20px 20px 20px;
+	font-size:22px;
+	margin-bottom:40px;
+}
+
+.w_rooms_check_nothing{
+	border: 1px solid #676D7F;
+	background-color: #676D7F;
 	width:240px;
 	height:240px;
 	border-radius: 20px 20px 20px 20px;
@@ -187,7 +210,7 @@ li {
 }
 
 .check_bottom{
-	padding-top:100px;
+	padding-top:70px;
 }
 
 .w_rooms_check_h3 > h3{
@@ -275,8 +298,6 @@ li {
 	border:1px solid #353C52;
 	border-radius: 5px 5px 5px 5px;
 	color:#FFFFFF;
-}
-
-#last_bottom{
-	margin-bottom:80px;
+	
+	
 }
