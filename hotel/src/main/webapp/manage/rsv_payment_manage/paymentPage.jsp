@@ -77,6 +77,7 @@ alert ("<%=payName%>" + "님, 총 결제 금액은 " + "<%=totalCost%>" + "원�
 </head>
 <body style="background-color: #686C7F;">
 <%@include file="../include/navbar.jsp"%>
+<%@include file="../rooms_control_manage/navbar.jsp"%>
 <link rel="stylesheet" href="${commonURL}/manage/rsv_payment_manage/insooCss.css">
 
 

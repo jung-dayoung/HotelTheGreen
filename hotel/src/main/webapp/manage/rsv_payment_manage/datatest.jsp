@@ -101,6 +101,7 @@ alert("<%=rsv_name%>" + "님, 예약 정보가 존재합니다. 결제 페이지
 </head>
 <body style="background-color: #686C7F;">
 <%@include file="../include/navbar.jsp"%>
+<%@include file="../rooms_control_manage/navbar.jsp"%>
 <link rel="stylesheet" href="${commonURL}/manage/rsv_payment_manage/insooCss.css">
 
 	<div class=container_data>
